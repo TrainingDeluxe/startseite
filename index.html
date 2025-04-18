@@ -13,9 +13,45 @@
       background-repeat: no-repeat;
       min-height: 100vh;
     }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 50;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 10% auto;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      top: 0.75rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #aaa;
+    }
+
+    .close:hover {
+      color: #000;
+    }
   </style>
 </head>
 <body class="text-gray-900 font-sans">
+
   <main class="min-h-screen flex flex-col items-center justify-center px-4">
     <h1 class="text-3xl sm:text-4xl font-bold text-blue-900 mb-6 text-center">Willkommen bei Training Deluxe</h1>
     <p class="text-base sm:text-lg text-blue-800 mb-8 text-center">Wähle deinen Bereich:</p>
@@ -26,57 +62,63 @@
       <a href="einstellungstest.html" class="bg-blue-700 text-white py-3 px-4 sm:py-4 sm:px-6 rounded-lg text-base sm:text-lg font-semibold hover:bg-blue-900 transition">Einstellungstest – Vom Zivilisten zum Helden</a>
     </div>
   </main>
+
+  <!-- Klickleiste unten links -->
+  <div class="fixed bottom-4 left-4 bg-white bg-opacity-80 rounded-md shadow-md text-sm px-3 py-2 z-50">
+    <a href="#" onclick="openModal('impressumModal')" class="text-gray-800 hover:underline mr-2">Impressum</a>
+    |
+    <a href="#" onclick="openModal('datenschutzModal')" class="text-gray-800 hover:underline ml-2">Datenschutz</a>
+  </div>
+
+  <!-- Impressum Modal -->
+  <div id="impressumModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('impressumModal')">&times;</span>
+      <h2 class="text-xl font-bold mb-4">Impressum</h2>
+      <p><strong>Bastian-Dominic Stahl</strong><br>
+      Personal Trainer & Laufcoach<br>
+      Calle de la Resistencia 23<br>
+      46001 Valencia, Spanien<br>
+      E-Mail: training.deluxe@outlook.de</p>
+      <p class="mt-2">N.I.F.: X1234567Y<br>
+      D.N.I.: 98765432L<br>
+      Registro Mercantil Valencia: Tomo 7890, Folio 123, Hoja V-456789</p>
+      <p class="mt-2">Verantwortlich für den Inhalt: Bastian-Dominic Stahl</p>
+    </div>
+  </div>
+
+  <!-- Datenschutz Modal -->
+  <div id="datenschutzModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('datenschutzModal')">&times;</span>
+      <h2 class="text-xl font-bold mb-4">Datenschutzerklärung / Política de Privacidad</h2>
+      <p>Der Schutz deiner Daten ist uns wichtig. Diese Website verarbeitet Daten gemäß DSGVO / RGPD.</p>
+      <p class="mt-2"><strong>Verantwortlich:</strong><br>
+      Bastian-Dominic Stahl<br>
+      training.deluxe@outlook.de</p>
+      <p class="mt-2">Beim Besuch der Seite können technisch notwendige Daten (z.B. IP-Adresse, Browser) verarbeitet werden.</p>
+      <p class="mt-2">Weitere Informationen findest du in unserer vollständigen Datenschutzerklärung.</p>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modals = document.querySelectorAll('.modal');
+      modals.forEach(modal => {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+    };
+  </script>
+
 </body>
 </html>
-<!-- Footer-Link unten links -->
-<a href="impressum.html" class="footer-link" target="_blank">Impressum</a>
-
-<style>
-  .footer-link {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    font-size: 0.9rem;
-    color: #555;
-    text-decoration: none;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 6px 10px;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    transition: background-color 0.3s;
-    z-index: 1000;
-  }
-
-  .footer-link:hover {
-    background-color: #e0e0e0;
-  }
-</style>
-<div class="footer-links">
-  <a href="impressum.html" target="_blank">Impressum</a> | 
-  <a href="datenschutz.html" target="_blank">Datenschutz</a>
-</div>
-
-<style>
-  .footer-links {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    font-size: 0.9rem;
-    color: #555;
-    background-color: rgba(255, 255, 255, 0.85);
-    padding: 6px 10px;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    z-index: 1000;
-  }
-
-  .footer-links a {
-    text-decoration: none;
-    color: #555;
-    margin: 0 4px;
-  }
-
-  .footer-links a:hover {
-    color: #000;
-  }
-</style>
