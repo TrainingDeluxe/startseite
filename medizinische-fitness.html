@@ -6,23 +6,24 @@
   <title>Medizinische Fitness für ein besseres Leben</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script>
-    function openPopup(text) {
-      const popup = document.getElementById('infoPopup');
-      const content = document.getElementById('popupContent');
-      content.innerHTML = text;
+    function togglePopup(contentId) {
+      const popup = document.getElementById('popup');
+      const content = document.getElementById(contentId);
       popup.classList.remove('hidden');
+      document.getElementById('popup-content').innerHTML = content.innerHTML;
     }
+
     function closePopup() {
-      document.getElementById('infoPopup').classList.add('hidden');
+      document.getElementById('popup').classList.add('hidden');
     }
   </script>
 </head>
 <body class="bg-white text-gray-900 font-sans">
-  <!-- Popup -->
-  <div id="infoPopup" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-    <div class="bg-white p-6 rounded-xl shadow-xl max-w-lg w-full text-blue-900">
-      <div id="popupContent" class="mb-4"></div>
-      <button onclick="closePopup()" class="bg-blue-800 text-white px-4 py-2 rounded">Schließen</button>
+  <!-- Pop-up -->
+  <div id="popup" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
+    <div class="bg-white p-8 rounded shadow-xl max-w-lg mx-auto relative">
+      <button onclick="closePopup()" class="absolute top-2 right-2 text-gray-600">&times;</button>
+      <div id="popup-content"></div>
     </div>
   </div>
 
@@ -51,47 +52,50 @@
     <div class="bg-white bg-opacity-0 max-w-6xl mx-auto px-4">
       <h3 class="text-3xl font-bold text-white mb-8">Mein Angebot</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
+        <!-- Internistisch -->
         <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
           <h4 class="text-xl font-semibold mb-2 text-blue-900">Internistische Krankheitsbilder</h4>
           <ul class="list-disc ml-5 text-blue-800">
-            <li><button onclick="openPopup('Ganzheitliches Bewegungskonzept mit individualisierter Belastungssteuerung, Ernährungsempfehlungen und alltagsnaher Umsetzung für onkologische Patienten.')">Krebs (Symptombekämpfung)</button></li>
-            <li><button onclick="openPopup('Gezieltes Herz-Kreislauf-Training unter regelmäßiger Kontrolle von Blutdruck und Belastbarkeit, ergänzt durch edukative Begleitung.')">Arteriosklerose (Tertiärprävention)</button></li>
-            <li><button onclick="openPopup('Diabetesgerechtes Training mit Blutzuckerkontrolle, strukturierter Belastungsplanung und metabolischer Schulung.')">Diabetes Mellitus (Tertiärprävention und mehr)</button></li>
-            <li><button onclick="openPopup('Blutdrucksenkende Bewegungseinheiten in Kombination mit Atemtechniken und Lebensstilinterventionen für nachhaltige Wirkung.')">Hypertonie (Tertiärprävention und mehr)</button></li>
+            <li>Krebs (Symptombekämpfung)</li>
+            <li>Arteriosklerose (Tertiärprävention)</li>
+            <li>Diabetes Mellitus (Tertiärprevention und mehr)</li>
+            <li>Hypertonie (Tertiärprevention und mehr)</li>
           </ul>
           <p class="mt-4 font-medium text-blue-900">ab 129 €</p>
         </div>
 
+        <!-- Orthopädisch -->
         <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
           <h4 class="text-xl font-semibold mb-2 text-blue-900">Orthopädische Krankheitsbilder</h4>
           <ul class="list-disc ml-5 text-blue-800">
-            <li><button onclick="openPopup('Beweglichkeitsförderung, Mobilisation und gezielte Kräftigung im Bereich der Rotatorenmanschette – evidenzbasiert und funktionell.')">Schulterluxation-, impingement</button></li>
-            <li><button onclick="openPopup('Rehabilitatives Krafttraining und sensomotorische Übungen zur optimalen Gelenkstabilisierung und funktionellen Wiederherstellung.')">Meniskusläsion, Kreuzbandriss</button></li>
-            <li><button onclick="openPopup('Schmerzspezifisches Bewegungsprogramm mit Schwerpunkt auf Körperwahrnehmung und funktionellen Alltagsbewegungen.')">Rückenschmerzen</button></li>
-            <li><button onclick="openPopup('Gezielte Mobilisation und Kräftigung für Arthrosepatienten – gelenkschonend und progressiv.')">Arthrose</button></li>
-            <li><button onclick="openPopup('Wiederherstellung der Mobilität und Kraft nach Operationen – individuell angepasstes funktionelles Aufbautraining.')">Kniegelenk-, Hüftprothese</button></li>
+            <li onclick="togglePopup('popup-ortho-1')">Schulterluxation-, impingement</li>
+            <li onclick="togglePopup('popup-ortho-2')">Meniskusläsion, Kreuzbandriss</li>
+            <li onclick="togglePopup('popup-ortho-3')">Rückenschmerzen</li>
+            <li onclick="togglePopup('popup-ortho-4')">Arthrose</li>
+            <li onclick="togglePopup('popup-ortho-5')">Kniegelenk-, Hüftprothese</li>
           </ul>
           <p class="mt-4 font-medium text-blue-900">ab 60 € / h • 5er-Paket: 275 €</p>
         </div>
 
+        <!-- Neurologisch -->
         <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
           <h4 class="text-xl font-semibold mb-2 text-blue-900">Neurologische Krankheitsbilder</h4>
           <ul class="list-disc ml-5 text-blue-800">
-            <li><button onclick="openPopup('Neuroaktives Training mit Fokus auf Gleichgewicht, Koordination und funktioneller Alltagskompetenz.')">Schlaganfall</button></li>
-            <li><button onclick="openPopup('Individuelle Mobilisation, Verbesserung der Feinmotorik und Symptommanagement durch gezielte Bewegung.')">MS - Multiple Sklerose</button></li>
-            <li><button onclick="openPopup('Motorisch-kognitives Training zur Verbesserung der Bewegungsabläufe und Minimierung der Tremorbelastung.')">Parkinson-Syndrom</button></li>
+            <li onclick="togglePopup('popup-neuro-1')">Schlaganfall</li>
+            <li onclick="togglePopup('popup-neuro-2')">MS - Multiple Sklerose</li>
+            <li onclick="togglePopup('popup-neuro-3')">Parkinson-Syndrom</li>
           </ul>
           <p class="mt-4 font-medium text-blue-900">ab 129 € / Monat</p>
         </div>
 
+        <!-- Wiedereinstieg -->
         <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
           <h4 class="text-xl font-semibold mb-2 text-blue-900">Sportlicher Wiedereinstieg</h4>
           <ul class="list-disc ml-5 text-blue-800">
-            <li><button onclick="openPopup('Gezielte Aufbauprogramme unter Berücksichtigung von Dysbalancen, früheren Verletzungen und aktueller Leistungsfähigkeit.')">Nach Verletzungen</button></li>
-            <li><button onclick="openPopup('Reintegration in den Sportalltag mit medizinischer Begleitung und Trainingsmodifikation bei Bedarf.')">Nach Krankheitspausen</button></li>
-            <li><button onclick="openPopup('Wiedereinstieg mit progressivem Aufbauplan, Rücksicht auf hormonelle Veränderungen und individuelle Zielsetzung.')">Nach einer Geburt - Babypause</button></li>
-            <li><button onclick="openPopup('Individuelle Analyse des aktuellen Status und strukturierter Re-Start mit Progression im funktionellen Training.')">Nach längeren Auszeiten</button></li>
+            <li onclick="togglePopup('popup-wieder-1')">Nach Verletzungen</li>
+            <li onclick="togglePopup('popup-wieder-2')">Nach Krankheitspausen</li>
+            <li onclick="togglePopup('popup-wieder-3')">Nach einer Geburt</li>
+            <li onclick="togglePopup('popup-wieder-4')">Nach längeren Auszeiten</li>
           </ul>
           <p class="mt-4 font-medium text-blue-900">ab 60 € / h • 5er-Paket: 275 €</p>
         </div>
@@ -99,13 +103,35 @@
     </div>
   </section>
 
+  <!-- Pop-up Inhalte -->
+  <div class="hidden">
+    <div id="popup-ortho-1"><h3 class="text-lg font-bold mb-2">Schulterluxation & Impingement</h3><p>Gezieltes Training zur Stabilisierung der Rotatorenmanschette und Verbesserung der Schultermechanik – für eine schmerzfreie Alltagsbeweglichkeit und sportliche Belastbarkeit.</p></div>
+    <div id="popup-ortho-2"><h3 class="text-lg font-bold mb-2">Meniskusläsion & Kreuzbandriss</h3><p>Rehabilitatives Krafttraining mit Fokus auf neuromuskuläre Ansteuerung, Koordination und Gelenkstabilisierung – sportartspezifisch angepasst und medizinisch fundiert.</p></div>
+    <div id="popup-ortho-3"><h3 class="text-lg font-bold mb-2">Rückenschmerzen</h3><p>Analyse der Schmerzursachen, Haltungsschulung, Core-Training sowie funktionelles Beweglichkeits- und Krafttraining – präzise und nachhaltig.</p></div>
+    <div id="popup-ortho-4"><h3 class="text-lg font-bold mb-2">Arthrose</h3><p>Schonendes, gelenkerhaltendes Bewegungs- und Krafttraining unter Berücksichtigung entzündlicher Phasen – individuell dosiert und alltagsorientiert.</p></div>
+    <div id="popup-ortho-5"><h3 class="text-lg font-bold mb-2">Knie- & Hüftprothese</h3><p>Systematischer Muskelaufbau und Mobilitätssteigerung zur Wiedererlangung von Lebensqualität – angepasst an deine Prothese und deinen Alltag.</p></div>
+
+    <div id="popup-neuro-1"><h3 class="text-lg font-bold mb-2">Schlaganfall</h3><p>Koordination, Mobilität und Kraft werden durch gezielte funktionelle Übungen gefördert. Ziel: Wiederherstellung größtmöglicher Selbstständigkeit.</p></div>
+    <div id="popup-neuro-2"><h3 class="text-lg font-bold mb-2">Multiple Sklerose</h3><p>Individuelles Training mit Rücksicht auf Fatigue und Thermosensitivität – Verbesserung der Beweglichkeit und Lebensqualität durch neurozentriertes Training.</p></div>
+    <div id="popup-neuro-3"><h3 class="text-lg font-bold mb-2">Parkinson</h3><p>Spezielle Bewegungstechniken zur Förderung von Balance, Koordination und Reaktionsfähigkeit – zur Minimierung motorischer Einschränkungen.</p></div>
+
+    <div id="popup-wieder-1"><h3 class="text-lg font-bold mb-2">Nach Verletzungen</h3><p>Wiederaufbau von Kraft und Bewegungsmustern mit Fokus auf Dysbalancen und präzises Belastungsmanagement – für eine sichere Rückkehr in Sport und Alltag.</p></div>
+    <div id="popup-wieder-2"><h3 class="text-lg font-bold mb-2">Nach Krankheitspausen</h3><p>Schonender, leistungsangepasster Wiedereinstieg unter ärztlicher Begleitung – Ziel: Stabilisierung, Aufbau und neue Motivation.</p></div>
+    <div id="popup-wieder-3"><h3 class="text-lg font-bold mb-2">Nach Geburt</h3><p>Ganzheitliches Training zur Reaktivierung von Beckenboden und Core-Muskulatur – vom leichten Einstieg bis zur sportlichen Performance.</p></div>
+    <div id="popup-wieder-4"><h3 class="text-lg font-bold mb-2">Nach längerer Auszeit</h3><p>Strukturiertes, progressives Training zur Wiederherstellung der Grundlagenausdauer, Kraft und Mobilität – für mehr Energie im Alltag.</p></div>
+  </div>
+
   <!-- Über mich -->
   <section id="uebermich" class="bg-blue-50 py-20">
     <div class="max-w-4xl mx-auto text-center px-4">
       <h3 class="text-3xl font-bold text-blue-900 mb-4">Über mich</h3>
       <p class="text-lg text-blue-800">
         Ich, Dominic Stahl, bin mit der europäischen Qualifikationsnorm 5 ein höchstmöglich ausgebildeter Personaltrainer und – A-Lizenzierter Trainer für Ausdauer,
-        medizinisches Fitness- & Functional Training. Zudem bin ich ausgebildet im Bereich "Ernährung & Sport". [...] Ich coache mit Präzision, Leidenschaft und dem Blick fürs Detail.
+        medizinisches Fitness- & Functional Training. Zudem bin ich ausgebildet im Bereich "Ernährung & Sport".
+        Da ich selbst Leistungssportler und gleichzeitig betroffen von mehrfachen Wirbelfrakturen, Frakturen am Armgelenk sowie an den Füßen bin und schon früh mit
+        Personen verschiedener Krankheitsbilder konfrontiert war, sowie ein Netzwerk an Ärzten an der Seite habe, mit denen ich zusammenarbeite, kombiniere ich
+        sportwissenschaftliches Know-how mit den aktuellen medizinischen Kenntnissen.
+        Ich coache mit Präzision, Leidenschaft und dem Blick fürs Detail.
       </p>
     </div>
   </section>
