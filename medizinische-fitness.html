@@ -5,42 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Medizinische Fitness für ein besseres Leben</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 50;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.5);
+  <script>
+    function openPopup(title, content) {
+      const popup = document.getElementById("popup");
+      popup.querySelector("#popup-title").innerText = title;
+      popup.querySelector("#popup-content").innerText = content;
+      popup.classList.remove("hidden");
     }
-    .modal-content {
-      background-color: #fefefe;
-      margin: 15% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 90%;
-      max-width: 600px;
-      border-radius: 12px;
+
+    function closePopup() {
+      document.getElementById("popup").classList.add("hidden");
     }
-    .close {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-    }
-    .close:hover,
-    .close:focus {
-      color: black;
-      text-decoration: none;
-      cursor: pointer;
-    }
-  </style>
+  </script>
 </head>
 <body class="bg-white text-gray-900 font-sans">
+  <!-- Popup -->
+  <div id="popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white p-6 rounded-xl max-w-lg shadow-xl relative">
+      <button onclick="closePopup()" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">✕</button>
+      <h3 id="popup-title" class="text-2xl font-bold text-blue-900 mb-4"></h3>
+      <p id="popup-content" class="text-blue-800"></p>
+    </div>
+  </div>
+
   <!-- Header -->
   <header class="bg-blue-800 text-white p-6 shadow">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
@@ -66,8 +53,54 @@
     <div class="bg-white bg-opacity-0 max-w-6xl mx-auto px-4">
       <h3 class="text-3xl font-bold text-white mb-8">Mein Angebot</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Der HTML-Code wurde gekürzt für bessere Lesbarkeit -->
-        <!-- Alle Punkte mit Pop-ups versehen -->
+
+        <!-- Internistisch -->
+        <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
+          <h4 class="text-xl font-semibold mb-2 text-blue-900">Internistische Krankheitsbilder</h4>
+          <ul class="list-disc ml-5 text-blue-800">
+            <li onclick="openPopup('Krebs', 'Individuell angepasstes Training zur Steigerung des Wohlbefindens und Unterstützung während oder nach der Therapie.')">Krebs (Symptombekämpfung)</li>
+            <li onclick="openPopup('Arteriosklerose', 'Gezieltes Bewegungsprogramm zur Förderung der Gefäßgesundheit.')">Arteriosklerose (Tertiärprävention)</li>
+            <li onclick="openPopup('Diabetes Mellitus', 'Verbesserung der Insulinempfindlichkeit durch gezieltes Training.')">Diabetes Mellitus (Tertiärprevention und mehr)</li>
+            <li onclick="openPopup('Hypertonie', 'Langfristige Blutdrucksenkung durch Ausdauer- und Krafttraining.')">Hypertonie (Tertiärprevention und mehr)</li>
+          </ul>
+          <p class="mt-4 font-medium text-blue-900">ab 129 €</p>
+        </div>
+
+        <!-- Orthopädisch -->
+        <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
+          <h4 class="text-xl font-semibold mb-2 text-blue-900">Orthopädische Krankheitsbilder</h4>
+          <ul class="list-disc ml-5 text-blue-800">
+            <li onclick="openPopup('Schulterbeschwerden', 'Individuelles Training zur Schmerzreduktion und Verbesserung der Funktion.')">Schulterluxation, Impingement</li>
+            <li onclick="openPopup('Meniskus/Kreuzband', 'Gezielter Muskelaufbau zur Stabilisation und Rückkehr in den Alltag.')">Meniskusläsion, Kreuzbandriss</li>
+            <li onclick="openPopup('Rückenschmerzen', 'Analyse, Mobilisation und funktionelles Training bei akuten oder chronischen Rückenschmerzen.')">Rückenschmerzen</li>
+            <li onclick="openPopup('Arthrose', 'Individuelles Bewegungs- und Krafttraining zur Schmerzlinderung und Erhalt der Beweglichkeit.')">Arthrose</li>
+            <li onclick="openPopup('Endoprothesen', 'Gezielter Aufbau von Kraft, Mobilität und Alltagstauglichkeit nach OPs.')">Kniegelenk-, Hüftprothese</li>
+          </ul>
+          <p class="mt-4 font-medium text-blue-900">ab 60 € / h • 5er-Paket: 275 €</p>
+        </div>
+
+        <!-- Neurologisch -->
+        <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
+          <h4 class="text-xl font-semibold mb-2 text-blue-900">Neurologische Krankheitsbilder</h4>
+          <ul class="list-disc ml-5 text-blue-800">
+            <li onclick="openPopup('Schlaganfall', 'Wiedererlangung von Bewegungsfähigkeit, Koordination und Selbstständigkeit.')">Schlaganfall</li>
+            <li onclick="openPopup('Multiple Sklerose', 'Training zur Erhaltung von Kraft, Koordination und Lebensqualität.')">MS – Multiple Sklerose</li>
+            <li onclick="openPopup('Parkinson-Syndrom', 'Gezielte Übungen zur Verbesserung von Mobilität, Gleichgewicht und Alltagssicherheit.')">Parkinson-Syndrom</li>
+          </ul>
+          <p class="mt-4 font-medium text-blue-900">ab 129 € / Monat</p>
+        </div>
+
+        <!-- Wiedereinstieg -->
+        <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
+          <h4 class="text-xl font-semibold mb-2 text-blue-900">Sportlicher Wiedereinstieg</h4>
+          <ul class="list-disc ml-5 text-blue-800">
+            <li onclick="openPopup('Verletzungsnachsorge', 'Gezielter und sicherer Wiederaufbau nach akuten oder chronischen Verletzungen.')">Nach Verletzungen</li>
+            <li onclick="openPopup('Krankheitspause', 'Koordinierter Neustart in Absprache mit medizinischem Fachpersonal.')">Nach Krankheitspausen</li>
+            <li onclick="openPopup('Postpartaltraining', 'Rückbildung und Wiederaufbau – abgestimmt auf individuelle Bedürfnisse.')">Nach einer Geburt - Babypause</li>
+            <li onclick="openPopup('Pause', 'Wiedereinstieg nach beruflichen oder persönlichen Pausen – ganzheitlich und nachhaltig.')">Nach längeren Auszeiten</li>
+          </ul>
+          <p class="mt-4 font-medium text-blue-900">ab 60 € / h • 5er-Paket: 275 €</p>
+        </div>
       </div>
     </div>
   </section>
@@ -78,7 +111,11 @@
       <h3 class="text-3xl font-bold text-blue-900 mb-4">Über mich</h3>
       <p class="text-lg text-blue-800">
         Ich, Dominic Stahl, bin mit der europäischen Qualifikationsnorm 5 ein höchstmöglich ausgebildeter Personaltrainer und – A-Lizenzierter Trainer für Ausdauer,
-        medizinisches Fitness- & Functional Training. Zudem bin ich ausgebildet im Bereich "Ernährung & Sport". [...] Ich coache mit Präzision, Leidenschaft und dem Blick fürs Detail.
+        medizinisches Fitness- & Functional Training. Zudem bin ich ausgebildet im Bereich "Ernährung & Sport".
+        Da ich selbst Leistungssportler und gleichzeitig betroffen von mehrfachen Wirbelfrakturen, Frakturen am Armgelenk sowie an den Füßen bin und schon früh mit
+        Personen verschiedener Krankheitsbilder konfrontiert war sowie ein Netzwerk an Ärzten an der Seite habe, mit denen ich zusammenarbeite, kombiniere ich
+        sportwissenschaftliches Know-how mit den aktuellen medizinischen Kenntnissen.
+        Ich coache mit Präzision, Leidenschaft und dem Blick fürs Detail.
       </p>
     </div>
   </section>
@@ -95,25 +132,5 @@
   <footer class="bg-blue-800 text-white text-center p-4">
     <p>&copy; 2025 Training Deluxe S.L. - Professionelles Coaching</p>
   </footer>
-
-  <!-- Modal Template -->
-  <div id="popupModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="document.getElementById('popupModal').style.display='none'">&times;</span>
-      <p id="popupText" class="text-gray-900"></p>
-    </div>
-  </div>
-
-  <script>
-    function showPopup(text) {
-      document.getElementById('popupText').innerText = text;
-      document.getElementById('popupModal').style.display = 'block';
-    }
-    window.onclick = function(event) {
-      if (event.target == document.getElementById('popupModal')) {
-        document.getElementById('popupModal').style.display = 'none';
-      }
-    }
-  </script>
 </body>
 </html>
