@@ -6,7 +6,22 @@
   <title>Medizinische Fitness für ein besseres Leben</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script>
-    function openPopup(title, content) {
+    function openPopup(title, baseContent) {
+      const allgemeineErgaenzung = "\n\n+ Extensive Anamnese (auf Basis der ärztlichen Meinung)\n+ Erstgespräch mit individueller Zielbesprechung\n+ Trainingsplan basierend auf persönliche Vorlieben, Möglichkeiten und Krankheitsbild\n+ Regelmäßiges personal Coaching im Rhein-Main-Gebiet\n+ Persönlicher Ansprechpartner\n+ Jederzeit individuell auf die Lebenssituation anpassbar";
+
+      const wiedereinstiegErgaenzung = "\n\n+ Extensive Anamnese\n+ Erstgespräch mit individueller Zielbesprechung\n+ Trainingsplan basierend auf persönliche Möglichkeiten und gewählter Sportart\n+ Regelmäßiges personal Coaching im Rhein-Main-Gebiet\n+ Persönlicher Ansprechpartner\n+ Jederzeit individuell auf die Lebenssituation anpassbar";
+
+      const wiedereinstiegTitel = [
+        "Verletzungsnachsorge",
+        "Krankheitspause",
+        "Postpartaltraining",
+        "Pause"
+      ];
+
+      const content = wiedereinstiegTitel.includes(title)
+        ? baseContent + wiedereinstiegErgaenzung
+        : baseContent + allgemeineErgaenzung;
+
       const popup = document.getElementById("popup");
       popup.querySelector("#popup-title").innerText = title;
       popup.querySelector("#popup-content").innerText = content;
@@ -21,7 +36,7 @@
 <body class="bg-white text-gray-900 font-sans">
   <!-- Popup -->
   <div id="popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-    <div class="bg-white p-6 rounded-xl max-w-lg shadow-xl relative">
+    <div class="bg-white p-6 rounded-xl max-w-lg shadow-xl relative whitespace-pre-line">
       <button onclick="closePopup()" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">✕</button>
       <h3 id="popup-title" class="text-2xl font-bold text-blue-900 mb-4"></h3>
       <p id="popup-content" class="text-blue-800"></p>
@@ -53,13 +68,6 @@
     <div class="bg-white bg-opacity-0 max-w-6xl mx-auto px-4">
       <h3 class="text-3xl font-bold text-white mb-8">Mein Angebot</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Template für Angebote -->
-        <script>
-          function formatListItem(title, content, label) {
-            return `<li class="cursor-pointer underline text-blue-800 hover:text-blue-900" onclick="openPopup('${title}', '${content}')">${label} <span class="inline-block text-blue-500">›</span></li>`;
-          }
-        </script>
-
         <!-- Internistisch -->
         <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
           <h4 class="text-xl font-semibold mb-2 text-blue-900">Internistische Krankheitsbilder</h4>
@@ -110,8 +118,5 @@
       </div>
     </div>
   </section>
-
-  <!-- Über mich und Kontakt bleiben unverändert -->
-  <!-- (Lässt sich bei Bedarf auch noch mit Popups oder Struktur anpassen.) -->
 </body>
 </html>
