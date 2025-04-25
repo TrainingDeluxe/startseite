@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Fit – Dein Weg zu mehr Fitness</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    function openPopup(title, baseContent) {
+      const content = baseContent;
 
+      const popup = document.getElementById("popup");
+      popup.querySelector("#popup-title").innerText = title;
+      popup.querySelector("#popup-content").innerText = content;
+      popup.classList.remove("hidden");
+    }
+
+    function closePopup() {
+      document.getElementById("popup").classList.add("hidden");
+    }
+  </script>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+  <!-- Popup -->
+  <div id="popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white p-6 rounded-xl max-w-lg shadow-xl relative whitespace-pre-line">
+      <button onclick="closePopup()" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">✕</button>
+      <h3 id="popup-title" class="text-2xl font-bold text-blue-900 mb-4"></h3>
+      <p id="popup-content" class="text-blue-800"></p>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-blue-800 text-white p-6 shadow">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold">Personal Fit – Dein Weg zu mehr Fitness</h1>
+      <nav>
+        <a href="#angebote" class="ml-4 hover:underline">Angebot</a>
+        <a href="#uebermich" class="ml-4 hover:underline">Über mich</a>
+        <a href="#kontakt" class="ml-4 hover:underline">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-blue-50 py-20 text-center px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-4xl font-bold text-blue-900 mb-4">„Verwandle dich in die beste Version deiner selbst“</h2>
+      <p class="text-lg text-blue-800">Personal-Fit-Programm – maßgeschneidert für deinen Erfolg, ob alleine oder im Team.</p>
+    </div>
+  </section>
+
+  <!-- Angebot -->
+  <section id="angebote" class="py-20 bg-cover bg-center text-white" style="background-image: url('images/PXL_20250319_132207961.jpg');">
+    <div class="bg-white bg-opacity-0 max-w-6xl mx-auto px-4">
+      <h3 class="text-3xl font-bold text-white mb-8">Mein Angebot</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Bodytransform -->
+        <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
+          <h4 class="text-xl font-semibold mb-2 text-blue-900">Bodytransform (Auf dem Weg zum Wunschkörper)</h4>
+          <ul class="list-disc ml-5 text-blue-800">
+            <li>Extensive Anamnese</li>
+            <li>Individuelle Zielerarbeitung</li>
+            <li>Individuell abgestimmter Trainingsplan</li>
+            <li>Ernährungsempfehlungen zur optimalen Zielerreichung</li>
+            <li>Personal Coaching (oder Video-Übungsanleitung)</li>
+            <li>Erfahrener persönlicher Ansprechpartner</li>
+          </ul>
+          <p class="mt-4 font-medium text-blue-900">ab 90 € / h • 5er-Paket: 400 €</p>
+          <button onclick="openPopup('Bodytransform', 'Als Personaltrainer unterstütze ich dich auf deinem Weg zu deinem Wunschkörper mit maßgeschneiderten Trainingsplänen und individuellen Ernährungstipps. Gemeinsam arbeiten wir an deinen Zielen und überwinden alle Hürden.')"
+                  class="mt-4 py-2 px-6 bg-blue-700 text-white rounded-lg hover:bg-blue-900">Mehr erfahren</button>
+        </div>
+
+        <!-- OCR- und HYROX Training -->
+        <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
+          <h4 class="text-xl font-semibold mb-2 text-blue-900">OCR- und HYROX-Training</h4>
+          <ul class="list-disc ml-5 text-blue-800">
+            <li>Extensive Anamnese</li>
+            <li>Individuell angepasster Trainingsplan</li>
+            <li>Ernährungsempfehlungen zur optimalen Zielerreichung</li>
+            <li>Personal Coaching auch als Team möglich</li>
+            <li>Erfahrener persönlicher Ansprechpartner</li>
+          </ul>
+          <p class="mt-4 font-medium text-blue-900">ab 95 € / h • 5er-Paket: 425 €</p>
+          <button onclick="openPopup('OCR- und HYROX Training', 'Das OCR- und HYROX-Training ist speziell für Ausdauersportler und Fitnessbegeisterte, die ihre Leistungsfähigkeit auf das nächste Level bringen wollen. Ich biete dir maßgeschneiderte Trainingsprogramme und Coaching zur Vorbereitung auf Wettkämpfe oder zur persönlichen Steigerung an.')"
+                  class="mt-4 py-2 px-6 bg-blue-700 text-white rounded-lg hover:bg-blue-900">Mehr erfahren</button>
+        </div>
+
+        <!-- Eine Gruppe, ein Training -->
+        <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
+          <h4 class="text-xl font-semibold mb-2 text-blue-900">Eine Gruppe, ein Training</h4>
+          <ul class="list-disc ml-5 text-blue-800">
+            <li>Vorbereitung auf das Sportevent</li>
+            <li>Extensive Anamnese (mit der Gruppe)</li>
+            <li>Gruppenspezifischer Trainingsplan</li>
+            <li>Personal- und Team-Coaching im Rhein-Main-Gebiet</li>
+            <li>Online Anleitung zur richtigen Übungsausführung</li>
+          </ul>
+          <p class="mt-4 font-medium text-blue-900">ab 50 € / h (pro Person, ab 5 Teilnehmer) • 5er-Paket: 250 €</p>
+          <button onclick="openPopup('Eine Gruppe, ein Training', 'Gruppentraining ist eine großartige Möglichkeit, Motivation und Teamgeist zu fördern. Gemeinsam trainieren wir für dein Event. Das Training wird auf die Bedürfnisse der Gruppe abgestimmt, dabei ist jeder Teilnehmer individuell eingebunden.')"
+                  class="mt-4 py-2 px-6 bg-blue-700 text-white rounded-lg hover:bg-blue-900">Mehr erfahren</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
