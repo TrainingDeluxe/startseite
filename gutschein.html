@@ -101,7 +101,7 @@
           </div>
         </div>
 
-        <!-- Fitness-Gutschein – bleibt unverändert -->
+        <!-- Fitness-Gutschein -->
         <div class="p-6 bg-white rounded-xl shadow-lg">
           <h2 class="text-2xl font-semibold text-blue-900 mb-4">Fitness-Gutschein – 90 €</h2>
           <ul class="list-disc ml-5 text-blue-800 text-sm mb-4">
@@ -110,12 +110,13 @@
             <li>Training mit oder ohne Equipment</li>
           </ul>
           <div class="flex flex-col gap-2">
-            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZXYWVU9876543" target="_blank"
-              class="inline-block bg-[#ffc439] hover:bg-[#f7b400] text-[#003087] font-semibold text-center text-sm px-6 py-2 rounded shadow-md">
-              <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="PayPal" class="h-5 inline mr-2 align-middle">
-              Jetzt kaufen
-            </a>
-            <a href="mailto:training.deluxe@outlook.de?subject=Spezielle Anfrage – Bundeswehr Vorbereitung"
+            <div id="paypal-container-DUVWLE47JCP98"></div>
+            <script>
+              paypal.HostedButtons({
+                hostedButtonId: "DUVWLE47JCP98",
+              }).render("#paypal-container-DUVWLE47JCP98");
+            </script>
+            <a href="mailto:training.deluxe@outlook.de?subject=Spezielle Anfrage – Fitness Gutschein"
               class="text-center text-blue-700 underline text-sm hover:text-blue-900">Spezielle Anfragen</a>
           </div>
         </div>
