@@ -6,7 +6,7 @@
   <title>Training Deluxe – Startseite</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-  <!-- Open Graph Meta-Tags für Social Sharing -->
+  <!-- Open Graph Meta-Tags -->
   <meta property="og:title" content="Training Deluxe – Personal Training & Laufcoaching" />
   <meta property="og:description" content="Finde deinen Weg zu mehr Gesundheit, Leistung und Fitness – mit professionellem Coaching von Training Deluxe." />
   <meta property="og:image" content="https://trainingdeluxe.github.io/startseite/images/Picsart_25-04-17_19-03-56-620.jpg" />
@@ -59,21 +59,27 @@
 <body class="text-gray-900 font-sans">
 
   <main class="min-h-screen flex flex-col items-center justify-center px-4">
-    <h1 class="text-3xl sm:text-4xl font-bold text-blue-900 mb-6 text-center">Willkommen bei Training Deluxe</h1>
-    <p class="text-base sm:text-lg text-blue-800 mb-8 text-center">Wähle deinen Bereich:</p>
+    <!-- Intro -->
+    <div class="bg-white bg-opacity-80 rounded-xl shadow-md p-6 max-w-xl text-center mb-10">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 mb-4">Willkommen bei Training Deluxe</h1>
+      <p class="text-base sm:text-lg text-blue-800">
+        Professionelles Personal Training, Laufcoaching & medizinisch fundiertes Fitnessprogramm – individuell, ganzheitlich und auf höchstem Niveau.
+      </p>
+    </div>
 
+    <!-- Buttonbereich -->
     <div class="flex flex-col gap-4 sm:gap-6 w-full max-w-md">
       <a href="laufen.html" class="bg-blue-700 text-white py-3 px-4 sm:py-4 sm:px-6 rounded-lg text-base sm:text-lg font-semibold hover:bg-blue-900 transition">Laufen – vom Einstieg bis zum Leistungssportler</a>
       <a href="medizinische-fitness.html" class="bg-blue-700 text-white py-3 px-4 sm:py-4 sm:px-6 rounded-lg text-base sm:text-lg font-semibold hover:bg-blue-900 transition">Medizinische Fitness – Gesund werden, gesund bleiben</a>
       <a href="einstellungstest.html" class="bg-blue-700 text-white py-3 px-4 sm:py-4 sm:px-6 rounded-lg text-base sm:text-lg font-semibold hover:bg-blue-900 transition">Einstellungstest – Vom Zivilisten zum Helden</a>
       <a href="personal-fit.html" class="bg-blue-700 text-white py-3 px-4 sm:py-4 sm:px-6 rounded-lg text-base sm:text-lg font-semibold hover:bg-blue-900 transition">Personal-Fit-Programm</a>
+      <a href="gutschein.html" class="bg-green-600 text-white py-3 px-4 sm:py-4 sm:px-6 rounded-lg text-base sm:text-lg font-semibold hover:bg-green-800 transition">Gutschein – Freude & Gesundheit verschenken</a>
     </div>
   </main>
 
   <!-- Klickleiste unten links -->
   <div class="fixed bottom-4 left-4 bg-white bg-opacity-80 rounded-md shadow-md text-sm px-3 py-2 z-50">
-    <a href="#" onclick="openModal('impressumModal')" class="text-gray-800 hover:underline mr-2">Impressum</a>
-    |
+    <a href="#" onclick="openModal('impressumModal')" class="text-gray-800 hover:underline mr-2">Impressum</a> |
     <a href="#" onclick="openModal('datenschutzModal')" class="text-gray-800 hover:underline ml-2">Datenschutz</a>
   </div>
 
