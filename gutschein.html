@@ -5,21 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gutscheine – Training Deluxe</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script 
-    src="https://www.paypal.com/sdk/js?client-id=BAAse8_X6AM9SVi3WGuB4RB2iGiUr71vORVuOY8dfeKEoAI5MjX2r6J0sS6mqCAGhscbUe06S9Jz0qqPHc&components=hosted-buttons&disable-funding=venmo&currency=EUR">
-  </script>
+  <script src="https://www.paypal.com/sdk/js?client-id=BAAse8_X6AM9SVi3WGuB4RB2iGiUr71vORVuOY8dfeKEoAI5MjX2r6J0sS6mqCAGhscbUe06S9Jz0qqPHc&components=hosted-buttons&disable-funding=venmo&currency=EUR"></script>
+  <style>
+    .bg-transparent {
+      background-color: transparent !important;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 50;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+    .modal-content {
+      background-color: white;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 0.5rem;
+      width: 90%;
+      max-width: 600px;
+    }
+  </style>
 </head>
-<body class="text-gray-900 font-sans" style="background-image: url('images/markup_1000043369.jpg'); background-size: cover; background-position: center;">
+<body class="text-gray-900 font-sans" style="background-image: url('[DEINE-HINTERGRUNDGRAFIK]'); background-size: cover; background-position: center;">
   <div class="min-h-screen py-16 px-4">
     <div class="max-w-6xl mx-auto">
       <h1 class="text-4xl md:text-5xl font-bold text-center text-white drop-shadow-md mb-12">Verschenke Gesundheit & Performance</h1>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
         <!-- Laufanalyse -->
-        <div class="p-6 bg-white rounded-xl shadow-lg">
-          <h2 class="text-2xl font-semibold text-blue-900 mb-4">Laufanalyse auf der Tartanbahn – 110 €</h2>
-          <ul class="list-disc ml-5 text-blue-800 text-sm mb-4">
+        <div class="p-6 bg-transparent rounded-xl shadow-lg">
+          <h2 class="text-2xl font-semibold text-white mb-4">Laufanalyse auf der Tartanbahn – 110 €</h2>
+          <ul class="list-disc ml-5 text-white text-sm mb-4">
             <li>Im Rhein-Main-Gebiet</li>
             <li>Aufnahme des Laufstils aus mehreren Perspektiven</li>
             <li>Auswertung & Analyse möglicher Verletzungsrisiken</li>
@@ -33,19 +54,18 @@
                 hostedButtonId: "JWPNFA5NK9VAN",
               }).render("#paypal-container-JWPNFA5NK9VAN");
             </script>
-            <a href="mailto:training.deluxe@outlook.de?subject=Spezielle Anfrage – Laufanalyse"
-              class="text-center text-blue-700 underline text-sm hover:text-blue-900">Spezielle Anfragen</a>
+            <a href="mailto:training.deluxe@outlook.de?subject=Spezielle Anfrage – Laufanalyse" class="text-center text-white underline text-sm hover:text-blue-300">Spezielle Anfragen</a>
           </div>
         </div>
 
         <!-- Laufanalyse PLUS -->
-        <div class="p-6 bg-white rounded-xl shadow-lg">
-          <h2 class="text-2xl font-semibold text-blue-900 mb-4">Laufanalyse PLUS – 170 €</h2>
-          <ul class="list-disc ml-5 text-blue-800 text-sm mb-4">
+        <div class="p-6 bg-transparent rounded-xl shadow-lg">
+          <h2 class="text-2xl font-semibold text-white mb-4">Laufanalyse PLUS – 170 €</h2>
+          <ul class="list-disc ml-5 text-white text-sm mb-4">
             <li>Alle Leistungen der regulären Laufanalyse</li>
             <li>Inkl.: Personal-Coaching</li>
             <li>Techniktraining & korrekte Ausführung der empfohlenen Übungen</li>
-            <li>Live Feedback. übungen können und verstehen.</li>
+            <li>Live Feedback. Übungen können und verstehen.</li>
           </ul>
           <div class="flex flex-col gap-2">
             <div id="paypal-container-UZ42PUYQSDCTA"></div>
@@ -54,15 +74,14 @@
                 hostedButtonId: "UZ42PUYQSDCTA",
               }).render("#paypal-container-UZ42PUYQSDCTA");
             </script>
-            <a href="mailto:training.deluxe@outlook.de?subject=Spezielle Anfrage – Laufanalyse PLUS"
-              class="text-center text-blue-700 underline text-sm hover:text-blue-900">Spezielle Anfragen</a>
+            <a href="mailto:training.deluxe@outlook.de?subject=Spezielle Anfrage – Laufanalyse PLUS" class="text-center text-white underline text-sm hover:text-blue-300">Spezielle Anfragen</a>
           </div>
         </div>
 
         <!-- Medizinisches Fitnesstraining -->
-        <div class="p-6 bg-white rounded-xl shadow-lg">
-          <h2 class="text-2xl font-semibold text-blue-900 mb-4">Medizinisches Fitnesstraining – 95 €</h2>
-          <ul class="list-disc ml-5 text-blue-800 text-sm mb-4">
+        <div class="p-6 bg-transparent rounded-xl shadow-lg">
+          <h2 class="text-2xl font-semibold text-white mb-4">Medizinisches Fitnesstraining – 95 €</h2>
+          <ul class="list-disc ml-5 text-white text-sm mb-4">
             <li>Im Rhein-Main-Gebiet</li>
             <li>Orthopädische Krankheitsbilder</li>
             <li>Sportlicher Wiedereinstieg</li>
@@ -77,15 +96,14 @@
                 hostedButtonId: "SSHD4CK7T5T2A",
               }).render("#paypal-container-SSHD4CK7T5T2A");
             </script>
-            <a href="mailto:training.deluxe@outlook.de?subject=Spezielle Anfrage – Medizinisches Fitnesstraining"
-              class="text-center text-blue-700 underline text-sm hover:text-blue-900">Spezielle Anfragen</a>
+            <a href="mailto:training.deluxe@outlook.de?subject=Spezielle Anfrage – Medizinisches Fitnesstraining" class="text-center text-white underline text-sm hover:text-blue-300">Spezielle Anfragen</a>
           </div>
         </div>
 
         <!-- Einstellungstest Coaching -->
-        <div class="p-6 bg-white rounded-xl shadow-lg">
-          <h2 class="text-2xl font-semibold text-blue-900 mb-4">Einstellungstest Coaching – 110 €</h2>
-          <ul class="list-disc ml-5 text-blue-800 text-sm mb-4">
+        <div class="p-6 bg-transparent rounded-xl shadow-lg">
+          <h2 class="text-2xl font-semibold text-white mb-4">Einstellungstest Coaching – 110 €</h2>
+          <ul class="list-disc ml-5 text-white text-sm mb-4">
             <li>Leistungsanalyse der Testdisziplinen</li>
             <li>Individuelle Schwerpunktsetzung</li>
             <li>1:1 Coaching oder Videofeedback</li>
@@ -98,15 +116,14 @@
                 hostedButtonId: "7NXH76N5KBGF2",
               }).render("#paypal-container-7NXH76N5KBGF2");
             </script>
-            <a href="mailto:training.deluxe@outlook.de?subject=Spezielle Anfrage – Polizei Vorbereitung"
-              class="text-center text-blue-700 underline text-sm hover:text-blue-900">Spezielle Anfragen</a>
+            <a href="mailto:training.deluxe@outlook.de?subject=Spezielle Anfrage – Polizei Vorbereitung" class="text-center text-white underline text-sm hover:text-blue-300">Spezielle Anfragen</a>
           </div>
         </div>
 
         <!-- Fitness-Gutschein -->
-        <div class="p-6 bg-white rounded-xl shadow-lg">
-          <h2 class="text-2xl font-semibold text-blue-900 mb-4">Fitness-Gutschein – 90 €</h2>
-          <ul class="list-disc ml-5 text-blue-800 text-sm mb-4">
+        <div class="p-6 bg-transparent rounded-xl shadow-lg">
+          <h2 class="text-2xl font-semibold text-white mb-4">Fitness-Gutschein – 90 €</h2>
+          <ul class="list-disc ml-5 text-white text-sm mb-4">
             <li>Aufbau der Grundfitness</li>
             <li>Fettverlust & Definition</li>
             <li>Training mit oder ohne Equipment</li>
@@ -118,15 +135,18 @@
                 hostedButtonId: "DUVWLE47JCP98",
               }).render("#paypal-container-DUVWLE47JCP98");
             </script>
-            <a href="mailto:training.deluxe@outlook.de?subject=Spezielle Anfrage – Fitness Gutschein"
-              class="text-center text-blue-700 underline text-sm hover:text-blue-900">Spezielle Anfragen</a>
+            <a href="mailto:training.deluxe@outlook.de?subject=Spezielle Anfrage – Fitness Gutschein" class="text-center text-white underline text-sm hover:text-blue-300">Spezielle Anfragen</a>
           </div>
         </div>
 
-      </div>
-
-      <p class="text-sm text-center mt-12 text-white/80">Nach dem Kauf erhältst du den Gutschein direkt per E-Mail.</p>
-    </div>
-  </div>
-</body>
-</html>
+        <!-- Event Creator -->
+        <div class="p-6 bg-transparent rounded-xl shadow-lg">
+          <h2 class="text-2xl font-semibold text-white mb-4">Event Creator</h2>
+          <ul class="list-disc ml-5 text-white text-sm mb-4">
+            <li><button onclick="openModal('modal1')" class="underline">Nur für Firmen und Sportveranstaltungen</button></li>
+            <li><button onclick="openModal('modal2')" class="underline">Fitness- und Gesundheitsprogramm, für Ihre Firma oder Event</button></li>
+            <li><button onclick="openModal('modal3')" class="underline">Sportprogramm für Ihren Sportreff</button></li>
+            <li><button onclick="openModal('modal4')" class="underline">Warm Up inkl. Mobilisation und Lauf ABC</button></li>
+            <
+::contentReference[oaicite:26]{index=26}
+ 
