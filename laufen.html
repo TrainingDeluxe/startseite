@@ -5,6 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lauftechnik & Performance Coaching</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Popup Hintergrund */
+    .modal-overlay {
+      background: rgba(0, 0, 0, 0.6);
+      position: fixed;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 50;
+    }
+    /* Popup Container */
+    .modal {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+  </style>
 </head>
 <body class="bg-white text-gray-900 font-sans">
   <!-- Header -->
@@ -32,6 +53,7 @@
     <div class="bg-white bg-opacity-0 max-w-6xl mx-auto px-4">
       <h3 class="text-3xl font-bold text-white mb-8">Mein Angebot</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Karte 1 -->
         <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
           <h4 class="text-xl font-semibold mb-2 text-blue-900">Laufeffizienz- Analyse</h4>
           <ul class="list-disc ml-5 text-blue-800">
@@ -42,9 +64,13 @@
             <li>Analyse +: Personal Coaching zum Erlernen und festigen der individuellen Übungen</li>
           </ul>
           <p class="mt-4 font-medium text-blue-900">ab 110 €</p>
-          <a href="mailto:training.deluxe@outlook.de?subject=JETZT BUCHEN: 1:1 Personal Coaching&body=Hallo Dominic, ich habe dein Angebot des 1:1 Personal Coaching gelesen. Gerne möchte ich meine ZIele mit dir gemeinsam erreichen.,%0D%0A%0D%0AVorname: [Vorname]%0D%0ANachname: [Nachname]%0D%0AWunsch: [Wunschvorstellung]%0D%0AZiel: [Zielvorstellung]%0D%0A%0D%0AMit freundlichen Grüßen" class="mt-4 inline-block bg-blue-800 text-white py-2 px-6 rounded-lg hover:bg-blue-700">JETZT BUCHEN</a>
+          <div class="mt-4 flex space-x-4">
+            <a href="mailto:training.deluxe@outlook.de?subject=Termin online buchen: Laufeffizienz-Analyse&body=Hallo Dominic, ich habe dein Angebot der Laufeffizienz-Analyse gelesen. Gerne möchte ich meine Ziele mit dir gemeinsam erreichen.,%0D%0A%0D%0AVorname: [Vorname]%0D%0ANachname: [Nachname]%0D%0AWunsch: [Wunschvorstellung]%0D%0AZiel: [Zielvorstellung]%0D%0A%0D%0AMit freundlichen Grüßen" class="bg-blue-800 text-white py-2 px-6 rounded-lg hover:bg-blue-700">Termin online buchen</a>
+            <button onclick="openModal('modal1')" class="bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-500">Rückruf anfordern</button>
+          </div>
         </div>
 
+        <!-- Karte 2 -->
         <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
           <h4 class="text-xl font-semibold mb-2 text-blue-900">Basis Lauf-Paket</h4>
           <ul class="list-disc ml-5 text-blue-800">
@@ -55,9 +81,13 @@
             <li>Professioneller telefonisch erreichbarer Ansprechpartner</li>
           </ul>
           <p class="mt-4 font-medium text-blue-900">ab 129 €</p>
-          <a href="mailto:training.deluxe@outlook.de?subject=JETZT BUCHEN: Basis Lauf-Paket&body=Hallo Dominic, ich habe dein Angebot des Basis Lauf Paket gelesen. Gerne möchte ich meine ZIele mit dir gemeinsam erreichen.,%0D%0A%0D%0AVorname: [Vorname]%0D%0ANachname: [Nachname]%0D%0AWunsch: [Wunschvorstellung]%0D%0AZiel: [Zielvorstellung]%0D%0A%0D%0AMit freundlichen Grüßen" class="mt-4 inline-block bg-blue-800 text-white py-2 px-6 rounded-lg hover:bg-blue-700">JETZT BUCHEN</a>
+          <div class="mt-4 flex space-x-4">
+            <a href="mailto:training.deluxe@outlook.de?subject=Termin online buchen: Basis Lauf-Paket&body=Hallo Dominic, ich habe dein Angebot des Basis Lauf-Paket gelesen. Gerne möchte ich meine Ziele mit dir gemeinsam erreichen.,%0D%0A%0D%0AVorname: [Vorname]%0D%0ANachname: [Nachname]%0D%0AWunsch: [Wunschvorstellung]%0D%0AZiel: [Zielvorstellung]%0D%0A%0D%0AMit freundlichen Grüßen" class="bg-blue-800 text-white py-2 px-6 rounded-lg hover:bg-blue-700">Termin online buchen</a>
+            <button onclick="openModal('modal1')" class="bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-500">Rückruf anfordern</button>
+          </div>
         </div>
 
+        <!-- Karte 3 -->
         <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
           <h4 class="text-xl font-semibold mb-2 text-blue-900">Personal Coaching</h4>
           <ul class="list-disc ml-5 text-blue-800">
@@ -68,9 +98,13 @@
             <li>Einzel- und Gruppen-Coaching (3-5 Deiner Freunde) möglich</li>
           </ul>
           <p class="mt-4 font-medium text-blue-900">Einzel ab 90 € ; Gruppe ab 240€</p>
-          <a href="mailto:training.deluxe@outlook.de?subject=JETZT BUCHEN: Online-Coaching&body=Hallo Dominic, ich habe dein Angebot des Online-Coaching gelesen. Gerne möchte ich meine ZIele mit dir gemeinsam erreichen.,%0D%0A%0D%0AVorname: [Vorname]%0D%0ANachname: [Nachname]%0D%0AWunsch: [Wunschvorstellung]%0D%0AZiel: [Zielvorstellung]%0D%0A%0D%0AMit freundlichen Grüßen" class="mt-4 inline-block bg-blue-800 text-white py-2 px-6 rounded-lg hover:bg-blue-700">JETZT BUCHEN</a>
+          <div class="mt-4 flex space-x-4">
+            <a href="mailto:training.deluxe@outlook.de?subject=Termin online buchen: Personal Coaching&body=Hallo Dominic, ich habe dein Angebot des Personal Coaching gelesen. Gerne möchte ich meine Ziele mit dir gemeinsam erreichen.,%0D%0A%0D%0AVorname: [Vorname]%0D%0ANachname: [Nachname]%0D%0AWunsch: [Wunschvorstellung]%0D%0AZiel: [Zielvorstellung]%0D%0A%0D%0AMit freundlichen Grüßen" class="bg-blue-800 text-white py-2 px-6 rounded-lg hover:bg-blue-700">Termin online buchen</a>
+            <button onclick="openModal('modal1')" class="bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-500">Rückruf anfordern</button>
+          </div>
         </div>
 
+        <!-- Karte 4 -->
         <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
           <h4 class="text-xl font-semibold mb-2 text-blue-900">Premium Lauf-Paket</h4>
           <ul class="list-disc ml-5 text-blue-800">
@@ -85,37 +119,57 @@
             <li>Personal Coaching oder Übungsvideos</li>
           </ul>
           <p class="mt-4 font-medium text-blue-900">ab 179€ / Monat</p>
-          <a href="mailto:training.deluxe@outlook.de?subject=JETZT BUCHEN: Premium Lauf-Paket&body=Hallo Dominic, ich habe dein Angebot des Premium Lauf Paket gelesen. Gerne möchte ich meine ZIele mit dir gemeinsam erreichen.,%0D%0A%0D%0AVorname: [Vorname]%0D%0ANachname: [Nachname]%0D%0AWunsch: [Wunschvorstellung]%0D%0AZiel: [Zielvorstellung]%0D%0A%0D%0AMit freundlichen Grüßen" class="mt-4 inline-block bg-blue-800 text-white py-2 px-6 rounded-lg hover:bg-blue-700">JETZT BUCHEN</a>
+          <div class="mt-4 flex space-x-4">
+            <a href="mailto:training.deluxe@outlook.de?subject=Termin online buchen: Premium Lauf-Paket&body=Hallo Dominic, ich habe dein Angebot des Premium Lauf-Paket gelesen. Gerne möchte ich meine Ziele mit dir gemeinsam erreichen.,%0D%0A%0D%0AVorname: [Vorname]%0D%0ANachname: [Nachname]%0D%0AWunsch: [Wunschvorstellung]%0D%0AZiel: [Zielvorstellung]%0D%0A%0D%0AMit freundlichen Grüßen" class="bg-blue-800 text-white py-2 px-6 rounded-lg hover:bg-blue-700">Termin online buchen</a>
+            <button onclick="openModal('modal1')" class="bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-500">Rückruf anfordern</button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Über mich -->
-  <section id="uebermich" class="bg-blue-50 py-20">
-    <div class="max-w-4xl mx-auto text-center px-4">
-      <h3 class="text-3xl font-bold text-blue-900 mb-4">Über mich</h3>
-      <p class="text-lg text-blue-800">
-        Ich, Diplom Sport- und Fitnesstrainer Dominic Stahl, bin mit der europäischen Qualifikationsnorm 5 ein höchstmöglich ausgebildeter Personaltrainer und – A-Lizenzierter Trainer für Ausdauer,
-        medizinisches Fitness- & Functional Training. Zudem bin ich ausgebildet im Bereich "Ernährung & Sport". 
-        Als Teilnehmer verschiedener Meisterschaften im Langstreckenlauf inkl. Podiumsplatzierungen (10 km – Marathon) kombiniere ich sportwissenschaftliches Know-how
-        mit über 10 Jahren eigener Wettkampferfahrung.
-        Ich coache mit Präzision, Leidenschaft und dem Blick fürs Detail.
-      </p>
+  <!-- Modal Popup -->
+  <div id="modal1" class="hidden fixed inset-0 modal-overlay" onclick="closeModal('modal1')">
+    <div class="modal" onclick="event.stopPropagation()">
+      <h3 class="text-xl font-semibold mb-4 text-blue-900">Rückruf anfordern</h3>
+      <form action="https://formspree.io/f/xrbqngbe" method="POST" class="space-y-4">
+        <input type="hidden" name="_subject" value="Rückruf-Anfrage über Webseite" />
+        <label class="block">
+          <span class="text-gray-700">Name*</span>
+          <input type="text" name="name" required class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="Vor- und Nachname" />
+        </label>
+        <label class="block">
+          <span class="text-gray-700">Telefonnummer*</span>
+          <input type="tel" name="phone" required class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="+49 123 4567890" />
+        </label>
+        <label class="block">
+          <span class="text-gray-700">E-Mail (optional)</span>
+          <input type="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="email@example.com" />
+        </label>
+        <label class="block">
+          <span class="text-gray-700">Nachricht (optional)</span>
+          <textarea name="message" rows="3" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="Ihre Nachricht"></textarea>
+        </label>
+        <div class="flex justify-end space-x-4">
+          <button type="button" onclick="closeModal('modal1')" class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded">Abbrechen</button>
+          <button type="submit" class="bg-blue-800 hover:bg-blue-700 text-white px-4 py-2 rounded">Absenden</button>
+        </div>
+      </form>
     </div>
-  </section>
-
-  <!-- Kontakt -->
-  <section id="kontakt" class="py-20 max-w-4xl mx-auto px-4">
-    <h3 class="text-3xl font-bold text-blue-900 mb-6">Kontakt</h3>
-    <p class="text-blue-800 mb-4">Du willst deine Technik verbessern oder mit einem Plan effizient auf dein Ziel hinarbeiten?</p>
-    <p class="mb-4">Melde dich gern per Mail oder Instagram – ich freue mich auf deine Anfrage!</p>
-    <p class="font-medium text-blue-900">Dominic Stahl<br>Email: <a href="mailto:training.deluxe@outlook.de" class="underline">training.deluxe@outlook.de</a><br>Instagram: <a href="https://instagram.com/main.trainer_dominic" class="underline">@main.trainer_dominic</a></p>
-  </section>
+  </div>
 
   <!-- Footer -->
-  <footer class="bg-blue-800 text-white text-center p-4">
-    <p>&copy; 2025 Training Deluxe S.L. - Professionelles Coaching</p>
+  <footer class="bg-blue-800 text-white p-6 mt-20 text-center">
+    &copy; 2025 Training Deluxe - Bastian-Dominic Stahl
   </footer>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+  </script>
 </body>
 </html>
