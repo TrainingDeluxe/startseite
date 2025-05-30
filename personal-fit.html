@@ -20,7 +20,7 @@
 </head>
 
 <body class="bg-white text-gray-900 font-sans">
-  <!-- Popup -->
+  <!-- Popup mit Formular -->
   <div id="popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
     <div class="bg-white p-6 rounded-xl max-w-lg w-full shadow-xl relative">
       <button onclick="closePopup()" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">✕</button>
@@ -28,22 +28,17 @@
       <form action="https://formspree.io/f/xrbqngbe" method="POST" class="space-y-4">
         <div>
           <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-          <input type="text" name="name" id="name" required
-            class="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" />
+          <input type="text" name="name" id="name" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" />
         </div>
         <div>
-          <label for="email" class="block text-sm font-medium text-gray-700">E-Mail</label>
-          <input type="email" name="email" id="email" required
-            class="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" />
+          <label for="phone" class="block text-sm font-medium text-gray-700">Telefonnummer</label>
+          <input type="tel" name="phone" id="phone" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" />
         </div>
         <div>
           <label for="message" class="block text-sm font-medium text-gray-700">Wunschzeitraum + Ziele angeben</label>
-          <textarea name="message" id="message" rows="4" required
-            placeholder="Z. B. Rückruf abends ab 18 Uhr – Ziel: Abnehmen & fitter werden"
-            class="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"></textarea>
+          <textarea name="message" id="message" rows="4" required placeholder="Z. B. Rückruf abends ab 18 Uhr – Ziel: Abnehmen & fitter werden" class="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"></textarea>
         </div>
-        <button type="submit"
-          class="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition">Absenden</button>
+        <button type="submit" class="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition">Absenden</button>
       </form>
     </div>
   </div>
@@ -68,67 +63,61 @@
     </div>
   </section>
 
-  <!-- Angebot -->
+  <!-- Angebote -->
   <section id="angebote" class="py-20 bg-cover bg-center text-white" style="background-image: url('images/PicsArt_05-18-06.45.08.jpg');">
     <div class="bg-white bg-opacity-0 max-w-6xl mx-auto px-4">
       <h3 class="text-3xl font-bold text-white mb-8">Mein Angebot</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-        <!-- Bodytransform -->
+        <!-- Angebot 1 -->
         <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
           <h4 class="text-xl font-semibold mb-2 text-blue-900">Bodytransform (Auf dem Weg zum Wunschkörper)</h4>
           <ul class="list-disc ml-5 text-blue-800">
             <li>Extensive Anamnese</li>
             <li>Individuelle Zielerarbeitung</li>
-            <li>Individueller 4-Wochen-Trainingsplan</li>
+            <li>Individueller Trainingsplan</li>
             <li>Ernährungsempfehlungen</li>
-            <li>Personal Coaching (oder Video-Übungsanleitung)</li>
-            <li>Persönlicher Ansprechpartner</li>
-            <li>Individuelles Paket auf Anfrage möglich</li>
+            <li>Personal Coaching</li>
+            <li>Erfahrener Ansprechpartner</li>
           </ul>
           <p class="mt-4 font-medium text-blue-900">ab 195 € • 3 Monate ab 550€</p>
-          <a href="mailto:training.deluxe@outlook.de?subject=JETZT STARTEN! – Bodytransform&body=Hallo Dominic, ich habe dein Angebot gelesen und weiß, wir können meine Ziele zusammen verwirklichen. Melde dich gerne Mal zurück.%0A%0AName:%0A%0AWunschvorstellung:%0A%0AZielvorstellung:"
-            class="mt-6 inline-block py-2 px-4 bg-blue-700 text-white rounded hover:bg-blue-900">JETZT STARTEN!</a>
-          <button onclick="openPopup('Bodytransform – Rückruf vereinbaren')"
-            class="mt-2 inline-block py-2 px-4 bg-blue-100 text-blue-800 rounded hover:bg-blue-200">Rückruf vereinbaren</button>
+          <div class="flex gap-2 mt-4">
+            <a href="mailto:training.deluxe@outlook.de?subject=JETZT STARTEN! – Bodytransform" class="py-2 px-4 bg-blue-700 text-white rounded hover:bg-blue-900">JETZT STARTEN!</a>
+            <button onclick="openPopup('Rückruf vereinbaren')" class="py-2 px-4 bg-gray-200 text-blue-900 rounded hover:bg-gray-300">Rückruf vereinbaren</button>
+          </div>
         </div>
 
-        <!-- OCR & HYROX -->
+        <!-- Angebot 2 -->
         <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
           <h4 class="text-xl font-semibold mb-2 text-blue-900">OCR- und HYROX-Training</h4>
           <ul class="list-disc ml-5 text-blue-800">
             <li>Extensive Anamnese</li>
             <li>Individueller Trainingsplan</li>
+            <li>Hindernis-Übungen</li>
+            <li>1:1 Coaching</li>
             <li>Ernährungsempfehlungen</li>
-            <li>1:1 Personal Coaching</li>
-            <li>Hindernisübungen im Video-/Bildformat</li>
-            <li>Persönlicher Ansprechpartner</li>
-            <li>Individuelles Paket auf Anfrage möglich</li>
           </ul>
           <p class="mt-4 font-medium text-blue-900">ab 195 € • Gruppenpreis auf Anfrage</p>
-          <a href="mailto:training.deluxe@outlook.de?subject=JETZT STARTEN! – OCR- und HYROX Training&body=Hallo Dominic, ich habe dein Angebot gelesen und weiß, wir können meine Ziele zusammen verwirklichen. Melde dich gerne Mal zurück.%0A%0AName:%0A%0AWunschvorstellung:%0A%0AZielvorstellung:"
-            class="mt-6 inline-block py-2 px-4 bg-blue-700 text-white rounded hover:bg-blue-900">JETZT STARTEN!</a>
-          <button onclick="openPopup('OCR- und HYROX – Rückruf vereinbaren')"
-            class="mt-2 inline-block py-2 px-4 bg-blue-100 text-blue-800 rounded hover:bg-blue-200">Rückruf vereinbaren</button>
+          <div class="flex gap-2 mt-4">
+            <a href="mailto:training.deluxe@outlook.de?subject=JETZT STARTEN! – OCR- und HYROX Training" class="py-2 px-4 bg-blue-700 text-white rounded hover:bg-blue-900">JETZT STARTEN!</a>
+            <button onclick="openPopup('Rückruf vereinbaren')" class="py-2 px-4 bg-gray-200 text-blue-900 rounded hover:bg-gray-300">Rückruf vereinbaren</button>
+          </div>
         </div>
 
-        <!-- Gruppentraining -->
+        <!-- Angebot 3 -->
         <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
           <h4 class="text-xl font-semibold mb-2 text-blue-900">Eine Gruppe, ein Training</h4>
           <ul class="list-disc ml-5 text-blue-800">
-            <li>Sportevent-Vorbereitung</li>
-            <li>Gruppen-Anamnese</li>
-            <li>Gruppenspezifischer Trainingsplan</li>
-            <li>Coaching im Rhein-Main-Gebiet</li>
+            <li>Gruppenspezifische Anamnese</li>
+            <li>Event-Vorbereitung</li>
+            <li>Team-Coaching im Rhein-Main-Gebiet</li>
             <li>1:1 Technik-Coaching</li>
-            <li>Persönlicher Ansprechpartner</li>
-            <li>Individuelles Paket auf Anfrage möglich</li>
           </ul>
-          <p class="mt-4 font-medium text-blue-900">ab 70 € / Person (Gruppe: 3–5)</p>
-          <a href="mailto:training.deluxe@outlook.de?subject=JETZT STARTEN! – Eine Gruppe, ein Training&body=Hallo Dominic, ich habe dein Angebot gelesen und weiß, wir können meine Ziele zusammen verwirklichen. Melde dich gerne Mal zurück.%0A%0AName:%0A%0AWunschvorstellung:%0A%0AZielvorstellung:"
-            class="mt-6 inline-block py-2 px-4 bg-blue-700 text-white rounded hover:bg-blue-900">JETZT STARTEN!</a>
-          <button onclick="openPopup('Gruppentraining – Rückruf vereinbaren')"
-            class="mt-2 inline-block py-2 px-4 bg-blue-100 text-blue-800 rounded hover:bg-blue-200">Rückruf vereinbaren</button>
+          <p class="mt-4 font-medium text-blue-900">ab 70 € / Person (3–5 Personen)</p>
+          <div class="flex gap-2 mt-4">
+            <a href="mailto:training.deluxe@outlook.de?subject=JETZT STARTEN! – Gruppentraining" class="py-2 px-4 bg-blue-700 text-white rounded hover:bg-blue-900">JETZT STARTEN!</a>
+            <button onclick="openPopup('Rückruf vereinbaren')" class="py-2 px-4 bg-gray-200 text-blue-900 rounded hover:bg-gray-300">Rückruf vereinbaren</button>
+          </div>
         </div>
 
       </div>
@@ -140,10 +129,7 @@
     <div class="max-w-3xl mx-auto">
       <h2 class="text-3xl font-bold text-blue-900 mb-4">Über mich</h2>
       <p class="text-lg text-blue-800">
-        Ich, Diplom Sport- und Fitnesstrainer Dominic Stahl, bin mit der europäischen Qualifikationsnorm 5 ein höchstmöglich ausgebildeter Personaltrainer und A-Lizenzierter Trainer für Ausdauer, medizinisches Fitness- & Functional Training.
-      </p>
-      <p class="text-lg text-blue-800 mt-4">
-        Als ehemaliger Soldat, OCRunner und Sportler des internationalen Militärsportverbands (CISM) habe ich Erfahrung in Leistung, Disziplin und praxisorientiertem Coaching.
+        Ich, Dominic Stahl, bin Diplom-Sport- und Fitnesstrainer mit höchster Qualifikation (EQF Level 5). Mit umfassender Erfahrung im militärischen und zivilen Sportbereich, unterstütze ich dich mit Präzision, Leidenschaft und Fachwissen.
       </p>
     </div>
   </section>
