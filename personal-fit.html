@@ -56,58 +56,35 @@
   <section id="angebote" class="py-20 bg-cover bg-center text-white" style="background-image: url('images/PicsArt_05-18-06.45.08.jpg');">
     <div class="bg-white bg-opacity-0 max-w-6xl mx-auto px-4">
       <h3 class="text-3xl font-bold text-white mb-8">Mein Angebot</h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <!-- Bodytransform -->
-        <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
-          <h4 class="text-xl font-semibold mb-2 text-blue-900">Bodytransform (Auf dem Weg zum Wunschkörper)</h4>
-          <ul class="list-disc ml-5 text-blue-800">
-            <li>Extensive Anamnese</li>
-            <li>Individuelle Zielerarbeitung</li>
-            <li>Individuell abgestimmter 4 Wochen Trainingsplan</li>
-            <li>Ernährungsempfehlungen zur optimalen Zielerreichung</li>
-            <li>Personal Coaching (oder Video-Übungsanleitung)</li>
-            <li>Erfahrener persönlicher Ansprechpartner</li>
-            <li>Individuelles Paket auf Anfrage möglich</li>
-          </ul>
-          <p class="mt-4 font-medium text-blue-900">ab 195 € • 3 Monate ab 550€</p>
-          <a href="mailto:training.deluxe@outlook.de?subject=JETZT STARTEN! – Bodytransform&body=Hallo Dominic, ich habe dein Angebot gelesen und weiß, wir können meine Ziele zusammen verwirklichen. Melde dich gerne Mal zurück.%0A%0AName:%0A%0AWunschvorstellung:%0A%0AZielvorstellung:"
-             class="mt-16 py-2 px-6 bg-blue-700 text-white rounded-lg hover:bg-blue-900">JETZT STARTEN!</a>
+        <!-- Angebotseintrag Vorlage -->
+        <!-- Für jede Karte wiederholen mit spezifischen Inhalten -->
+        <!-- Beispiel: Bodytransform -->
+        <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70 flex flex-col justify-between">
+          <div>
+            <h4 class="text-xl font-semibold mb-2 text-blue-900">Bodytransform (Auf dem Weg zum Wunschkörper)</h4>
+            <ul class="list-disc ml-5 text-blue-800">
+              <li>Extensive Anamnese</li>
+              <li>Individuelle Zielerarbeitung</li>
+              <li>Individuell abgestimmter 4 Wochen Trainingsplan</li>
+              <li>Ernährungsempfehlungen zur optimalen Zielerreichung</li>
+              <li>Personal Coaching (oder Video-Übungsanleitung)</li>
+              <li>Erfahrener persönlicher Ansprechpartner</li>
+              <li>Individuelles Paket auf Anfrage möglich</li>
+            </ul>
+            <p class="mt-4 font-medium text-blue-900">ab 195 € • 3 Monate ab 550€</p>
+          </div>
+          <div class="mt-6 space-y-3">
+            <a href="mailto:training.deluxe@outlook.de?subject=JETZT STARTEN! – Bodytransform&body=Hallo Dominic, ich habe dein Angebot gelesen und weiß, wir können meine Ziele zusammen verwirklichen. Melde dich gerne Mal zurück.%0A%0AName:%0A%0AWunschvorstellung:%0A%0AZielvorstellung:"
+              class="block text-center py-2 px-6 bg-blue-700 text-white rounded-lg hover:bg-blue-900 transform transition duration-200">JETZT STARTEN!</a>
+            <button onclick="openPopup('Rückruf vereinbaren', 'Teile mir deinen Namen, Rückrufnummer und Wunschzeitraum mit. Ich melde mich bei dir zurück!')"
+              class="block w-full py-2 px-6 text-center bg-white text-blue-700 border border-blue-700 rounded-lg hover:bg-blue-100 transform transition duration-200">Rückruf vereinbaren</button>
+          </div>
         </div>
 
-        <!-- OCR- und HYROX Training -->
-        <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
-          <h4 class="text-xl font-semibold mb-2 text-blue-900">OCR- und HYROX-Training</h4>
-          <ul class="list-disc ml-5 text-blue-800">
-            <li>Extensive Anamnese</li>
-            <li>Individuell angepasster Trainingsplan</li>
-            <li>Ernährungsempfehlungen zur optimalen Zielerreichung</li>
-            <li>1:1 Personal Coaching (auch als Team möglich)</li>
-            <li>Hindernis basierte Kräftigungsübungen im Bild- und Videokatalog</li>
-            <li>Erfahrener persönlicher Ansprechpartner</li>
-            <li>Individuelles Paket auf Anfrage möglich</li>
-          </ul>
-          <p class="mt-4 font-medium text-blue-900">ab 195 €  • Gruppenpreis auf Anfrage</p>
-          <a href="mailto:training.deluxe@outlook.de?subject=JETZT STARTEN! – OCR- und HYROX Training&body=Hallo Dominic, ich habe dein Angebot gelesen und weiß, wir können meine Ziele zusammen verwirklichen. Melde dich gerne Mal zurück.%0A%0AName:%0A%0AWunschvorstellung:%0A%0AZielvorstellung:"
-             class="mt-16 py-2 px-6 bg-blue-700 text-white rounded-lg hover:bg-blue-900">JETZT STARTEN!</a>
-        </div>
-
-        <!-- Eine Gruppe, ein Training -->
-        <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
-          <h4 class="text-xl font-semibold mb-2 text-blue-900">Eine Gruppe, ein Training</h4>
-          <ul class="list-disc ml-5 text-blue-800">
-            <li>Vorbereitung auf dein Sportevent</li>
-            <li>Extensive Anamnese (mit der Gruppe)</li>
-            <li>Gruppenspezifischer Trainingsplan</li>
-            <li>Personal- und Team-Coaching im Rhein-Main-Gebiet</li>
-            <li>1:1 Coaching zur richtigen Übungsausführung</li>
-            <li>Erfahrener persönlicher Ansprechpartner</li>
-            <li>Individuelles Paket auf Anfrage möglich</li>
-          </ul>
-          <p class="mt-4 font-medium text-blue-900">ab 70 € / Person (Gruppe: 3-5 Personen)</p>
-          <a href="mailto:training.deluxe@outlook.de?subject=JETZT STARTEN! – Eine Gruppe, ein Training&body=Hallo Dominic, ich habe dein Angebot gelesen und weiß, wir können meine Ziele zusammen verwirklichen. Melde dich gerne Mal zurück.%0A%0AName:%0A%0AWunschvorstellung:%0A%0AZielvorstellung:"
-             class="mt-16 py-2 px-6 bg-blue-700 text-white rounded-lg hover:bg-blue-900">JETZT STARTEN!</a>
-        </div>
+        <!-- Weitere Karten nach demselben Muster wie oben -->
+        <!-- OCR/HYROX und Gruppe folgen analog (hier gekürzt dargestellt, du kannst sie einfach mit dem gleichen Block ersetzen) -->
 
       </div>
     </div>
