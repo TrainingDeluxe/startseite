@@ -1,30 +1,84 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Personal Fit – Dein Weg zu mehr Fitness</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script>
-    function openPopup(title, baseContent) {
+    // Popup öffnen, hier wird unterschieden, ob Rückruf-Formular oder Info-Text
+    function openPopup(type, title, baseContent) {
       const popup = document.getElementById("popup");
-      popup.querySelector("#popup-title").innerText = title;
-      popup.querySelector("#popup-content").innerText = baseContent;
+      const infoContent = document.getElementById("popup-content-info");
+      const formContent = document.getElementById("popup-content-form");
+      const popupTitle = document.getElementById("popup-title");
+
+      popupTitle.innerText = title;
+
+      if (type === "form") {
+        // Formular anzeigen
+        infoContent.classList.add("hidden");
+        formContent.classList.remove("hidden");
+      } else {
+        // Info-Text anzeigen
+        formContent.classList.add("hidden");
+        infoContent.classList.remove("hidden");
+        infoContent.innerText = baseContent;
+      }
+
       popup.classList.remove("hidden");
     }
+
     function closePopup() {
       document.getElementById("popup").classList.add("hidden");
     }
+
+    // Formular absenden, mailto mit Formular-Daten öffnen
+    function sendCallbackForm(event) {
+      event.preventDefault();
+      const name = document.getElementById("callback-name").value.trim();
+      const phone = document.getElementById("callback-phone").value.trim();
+
+      if (!name || !phone) {
+        alert("Bitte Name und Telefonnummer ausfüllen.");
+        return;
+      }
+
+      const email = "training.deluxe@outlook.de";
+      const subject = encodeURIComponent("Rückruf vereinbaren");
+      const body = encodeURIComponent(
+        `Hallo Dominic,%0A%0Aich möchte gern einen Rückruf vereinbaren.%0A%0AName: ${name}%0ATelefonnummer: ${phone}%0A%0ABitte melde dich bei mir.%0A`
+      );
+
+      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+      closePopup();
+    }
   </script>
 </head>
-<body class="bg-white text-gray-900 font-sans">
 
+<body class="bg-white text-gray-900 font-sans">
   <!-- Popup -->
   <div id="popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
     <div class="bg-white p-6 rounded-xl max-w-lg shadow-xl relative whitespace-pre-line">
       <button onclick="closePopup()" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">✕</button>
       <h3 id="popup-title" class="text-2xl font-bold text-blue-900 mb-4"></h3>
-      <p id="popup-content" class="text-blue-800"></p>
+
+      <!-- Info Text -->
+      <p id="popup-content-info" class="text-blue-800"></p>
+
+      <!-- Formular Rückruf -->
+      <form id="popup-content-form" class="hidden text-blue-800" onsubmit="sendCallbackForm(event)">
+        <label class="block mb-2 font-semibold" for="callback-name">Name</label>
+        <input id="callback-name" type="text" class="w-full p-2 mb-4 border border-gray-300 rounded" required />
+
+        <label class="block mb-2 font-semibold" for="callback-phone">Telefonnummer</label>
+        <input id="callback-phone" type="tel" class="w-full p-2 mb-4 border border-gray-300 rounded" required />
+
+        <button type="submit" class="bg-blue-700 hover:bg-blue-900 text-white font-semibold py-2 px-6 rounded">
+          Rückruf absenden
+        </button>
+      </form>
     </div>
   </div>
 
@@ -54,7 +108,7 @@
       <h3 class="text-3xl font-bold text-white mb-8">Mein Angebot</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-        <!-- Angebot 1 -->
+        <!-- Bodytransform -->
         <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
           <h4 class="text-xl font-semibold mb-2 text-blue-900">Bodytransform (Auf dem Weg zum Wunschkörper)</h4>
           <ul class="list-disc ml-5 text-blue-800">
@@ -67,17 +121,16 @@
             <li>Individuelles Paket auf Anfrage möglich</li>
           </ul>
           <p class="mt-4 font-medium text-blue-900">ab 195 € • 3 Monate ab 550€</p>
-          <div class="flex flex-col gap-3 mt-6">
+          <div class="mt-16 flex space-x-4">
             <a href="mailto:training.deluxe@outlook.de?subject=JETZT STARTEN! – Bodytransform&body=Hallo Dominic, ich habe dein Angebot gelesen und weiß, wir können meine Ziele zusammen verwirklichen. Melde dich gerne Mal zurück.%0A%0AName:%0A%0AWunschvorstellung:%0A%0AZielvorstellung:"
-               class="py-2 px-6 bg-blue-700 text-white rounded-lg hover:bg-blue-900 text-center">JETZT STARTEN!</a>
-            <button onclick="openPopup('Bodytransform – Rückruf vereinbaren', 'Gib mir gerne deinen Namen und deine Telefonnummer durch – ich melde mich persönlich bei dir. Gemeinsam sprechen wir über deinen Weg zum Wunschkörper.')" 
-                    class="py-2 px-6 bg-blue-100 text-blue-800 rounded-lg hover:bg-blue-200">
-              Rückruf vereinbaren
-            </button>
+              class="py-2 px-6 bg-blue-700 text-white rounded-lg hover:bg-blue-900">JETZT STARTEN!</a>
+            <button
+              onclick="openPopup('form', 'Rückruf vereinbaren', '')"
+              class="py-2 px-6 bg-blue-400 text-white rounded-lg hover:bg-blue-600">Rückruf vereinbaren</button>
           </div>
         </div>
 
-        <!-- Angebot 2 -->
+        <!-- OCR- und HYROX Training -->
         <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
           <h4 class="text-xl font-semibold mb-2 text-blue-900">OCR- und HYROX-Training</h4>
           <ul class="list-disc ml-5 text-blue-800">
@@ -89,18 +142,17 @@
             <li>Erfahrener persönlicher Ansprechpartner</li>
             <li>Individuelles Paket auf Anfrage möglich</li>
           </ul>
-          <p class="mt-4 font-medium text-blue-900">ab 195 € • Gruppenpreis auf Anfrage</p>
-          <div class="flex flex-col gap-3 mt-6">
+          <p class="mt-4 font-medium text-blue-900">ab 195 €  • Gruppenpreis auf Anfrage</p>
+          <div class="mt-16 flex space-x-4">
             <a href="mailto:training.deluxe@outlook.de?subject=JETZT STARTEN! – OCR- und HYROX Training&body=Hallo Dominic, ich habe dein Angebot gelesen und weiß, wir können meine Ziele zusammen verwirklichen. Melde dich gerne Mal zurück.%0A%0AName:%0A%0AWunschvorstellung:%0A%0AZielvorstellung:"
-               class="py-2 px-6 bg-blue-700 text-white rounded-lg hover:bg-blue-900 text-center">JETZT STARTEN!</a>
-            <button onclick="openPopup('OCR/HYROX – Rückruf vereinbaren', 'Bereit für den nächsten HYROX oder OCR-Lauf? Lass uns über deine Ziele und meine Trainingsstrategie sprechen. Gib mir deine Kontaktdaten, ich rufe zurück.')" 
-                    class="py-2 px-6 bg-blue-100 text-blue-800 rounded-lg hover:bg-blue-200">
-              Rückruf vereinbaren
-            </button>
+              class="py-2 px-6 bg-blue-700 text-white rounded-lg hover:bg-blue-900">JETZT STARTEN!</a>
+            <button
+              onclick="openPopup('form', 'Rückruf vereinbaren', '')"
+              class="py-2 px-6 bg-blue-400 text-white rounded-lg hover:bg-blue-600">Rückruf vereinbaren</button>
           </div>
         </div>
 
-        <!-- Angebot 3 -->
+        <!-- Eine Gruppe, ein Training -->
         <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
           <h4 class="text-xl font-semibold mb-2 text-blue-900">Eine Gruppe, ein Training</h4>
           <ul class="list-disc ml-5 text-blue-800">
@@ -112,14 +164,13 @@
             <li>Erfahrener persönlicher Ansprechpartner</li>
             <li>Individuelles Paket auf Anfrage möglich</li>
           </ul>
-          <p class="mt-4 font-medium text-blue-900">ab 70 € / Person (Gruppe: 3–5 Personen)</p>
-          <div class="flex flex-col gap-3 mt-6">
+          <p class="mt-4 font-medium text-blue-900">ab 70 € / Person (Gruppe: 3-5 Personen)</p>
+          <div class="mt-16 flex space-x-4">
             <a href="mailto:training.deluxe@outlook.de?subject=JETZT STARTEN! – Eine Gruppe, ein Training&body=Hallo Dominic, ich habe dein Angebot gelesen und weiß, wir können meine Ziele zusammen verwirklichen. Melde dich gerne Mal zurück.%0A%0AName:%0A%0AWunschvorstellung:%0A%0AZielvorstellung:"
-               class="py-2 px-6 bg-blue-700 text-white rounded-lg hover:bg-blue-900 text-center">JETZT STARTEN!</a>
-            <button onclick="openPopup('Gruppe – Rückruf vereinbaren', 'Gerne bespreche ich mit dir persönlich, wie ich eure Gruppe optimal auf euer Ziel vorbereiten kann. Teile mir deinen Namen und deine Telefonnummer mit.')" 
-                    class="py-2 px-6 bg-blue-100 text-blue-800 rounded-lg hover:bg-blue-200">
-              Rückruf vereinbaren
-            </button>
+              class="py-2 px-6 bg-blue-700 text-white rounded-lg hover:bg-blue-900">JETZT STARTEN!</a>
+            <button
+              onclick="openPopup('form', 'Rückruf vereinbaren', '')"
+              class="py-2 px-6 bg-blue-400 text-white rounded-lg hover:bg-blue-600">Rückruf vereinbaren</button>
           </div>
         </div>
 
@@ -132,7 +183,13 @@
     <div class="max-w-3xl mx-auto">
       <h2 class="text-3xl font-bold text-blue-900 mb-4">Über mich</h2>
       <p class="text-lg text-blue-800">
-        Ich, Diplom Sport- und Fitnesstrainer Dominic Stahl, bin mit der europäischen Qualifikationsnorm 5 ein höchstmöglich ausgebildeter Personaltrainer …
+        Ich, Diplom Sport- und Fitnesstrainer Dominic Stahl, bin mit der europäischen Qualifikationsnorm 5 ein höchstmöglich ausgebildeter Personaltrainer und – A-Lizenzierter Trainer für Ausdauer, medizinisches Fitness- & Functional Training. Zudem bin ich ausgebildet im Bereich "Ernährung & Sport".
+      </p>
+      <p class="text-lg text-blue-800 mt-4">
+        Als ehemaliger Soldat, OCRunner und Sportler des "Conseil International du Sport Militaire" (CISM) Internationale Militärsport-Verband, sowie meiner hohen Ausbildung als Trainer in verschiedenen Bereichen, habe ich Einblicke, Erfahrungen und fachkundiges Wissen darüber wie man jedes Hindernis überwindet, schwere Lasten leicht schultert und dabei ein athletisches Auftreten behält.
+      </p>
+      <p class="text-lg text-blue-800 mt-4">
+        Ich coache mit Präzision, Leidenschaft und dem Blick fürs Detail.
       </p>
     </div>
   </section>
@@ -141,6 +198,6 @@
   <footer class="bg-blue-800 text-white p-6 text-center">
     <p>© 2025 Personal Fit – Alle Rechte vorbehalten</p>
   </footer>
-
 </body>
+
 </html>
