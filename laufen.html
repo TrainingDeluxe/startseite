@@ -32,9 +32,8 @@
     <div class="bg-white bg-opacity-0 max-w-6xl mx-auto px-4">
       <h3 class="text-3xl font-bold text-white mb-8">Mein Angebot</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        
-        <!-- Beispielkarte – wiederholt sich 4x mit anderem Inhalt -->
-        <!-- Laufanalyse -->
+
+        <!-- Laufeffizienz-Analyse -->
         <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
           <h4 class="text-xl font-semibold mb-2 text-blue-900">Laufeffizienz-Analyse</h4>
           <ul class="list-disc ml-5 text-blue-800">
@@ -103,6 +102,21 @@
     </div>
   </section>
 
+  <!-- Über mich -->
+  <section id="uebermich" class="py-20 bg-blue-100 text-center px-6">
+    <div class="max-w-3xl mx-auto">
+      <h3 class="text-3xl font-bold text-blue-900 mb-6">Über mich</h3>
+      <p class="text-lg text-blue-800 leading-relaxed">
+        Ich, Dominic Stahl, Diplom Sport- und Fitnsstrainer
+        bin mit der höchstmöglichen Zertifizierung in den Bereichen Ausdauer, Sport und Ernährung, Functional- und Medical Fitness ausgezeichnet und selbst leidenschaftlicher Athlet mit langjähriger Erfahrung in der Betreuung von Einsteigern, ambitionierten Läufern und Leistungssportlern. 
+        Mein Ansatz vereint wissenschaftlich fundierte Methoden mit individueller Betreuung und praktischer Erfahrung im Fitness- und Ausdauersport, von 5 KM bis zu Ultramarathon- Wettkämpfen
+        <br /><br />
+        Wenn du deine Lauftechnik verbessern, Verletzungen vermeiden und das Maximum aus deinem Training herausholen willst, bist du bei mir genau richtig.
+        Lass uns gemeinsam dein nächstes Ziel erreichen – mit Struktur, Motivation und Plan!
+      </p>
+    </div>
+  </section>
+
   <!-- Modal -->
   <div id="callbackModal" class="fixed inset-0 hidden items-center justify-center bg-black bg-opacity-50 z-50">
     <div class="bg-white rounded-lg p-6 max-w-md w-full">
@@ -112,9 +126,8 @@
       </div>
       <form action="https://formspree.io/f/xrbqngbe" method="POST" class="space-y-4">
         <input type="text" name="name" placeholder="Dein Name" required class="w-full border p-2 rounded">
-        <input type="email" name="email" placeholder="Deine E-Mail" required class="w-full border p-2 rounded">
-        <input type="tel" name="phone" placeholder="Telefonnummer (optional)" class="w-full border p-2 rounded">
-        <textarea name="message" placeholder="Worum geht es?" required class="w-full border p-2 rounded"></textarea>
+        <input type="tel" name="phone" placeholder="Telefonnummer" required class="w-full border p-2 rounded">
+        <textarea name="message" placeholder="Wunschzeitraum + Ziele angeben" required class="w-full border p-2 rounded"></textarea>
         <button type="submit" class="w-full bg-blue-800 text-white py-2 rounded hover:bg-blue-700">Absenden</button>
       </form>
     </div>
