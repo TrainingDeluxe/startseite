@@ -3,58 +3,133 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Medizinische Fitness</title>
+  <title>Medizinische Fitness für ein besseres Leben</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100 text-gray-900">
+  <script>
+    function openPopup(title, baseContent) {
+      const allgemeineErgaenzung = "\n\n+ Extensive Anamnese (auf Basis der ärztlichen Meinung)\n+ Erstgespräch mit individueller Zielbesprechung\n+ Trainingsplan basierend auf persönliche Vorlieben, Möglichkeiten und Krankheitsbild\n+ Regelmäßiges personal Coaching im Rhein-Main-Gebiet\n+ Persönlicher Ansprechpartner\n+ Jederzeit individuell auf die Lebenssituation anpassbar";
 
-  <!-- Angebotsbereich Medizinische Fitness -->
-  <section class="py-12 px-4 bg-white">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold text-blue-900 mb-8 text-center">Medizinische Fitness – Gesund werden, gesund bleiben</h2>
+      const wiedereinstiegErgaenzung = "\n\n+ Extensive Anamnese\n+ Erstgespräch mit individueller Zielbesprechung\n+ Trainingsplan basierend auf persönliche Möglichkeiten und gewählter Sportart\n+ Regelmäßiges personal Coaching im Rhein-Main-Gebiet\n+ Persönlicher Ansprechpartner\n+ Jederzeit individuell auf die Lebenssituation anpassbar";
+
+      const wiedereinstiegTitel = [
+        "Verletzungsnachsorge",
+        "Krankheitspause",
+        "Postpartaltraining",
+        "Pause"
+      ];
+
+      const content = wiedereinstiegTitel.includes(title)
+        ? baseContent + wiedereinstiegErgaenzung
+        : baseContent + allgemeineErgaenzung;
+
+      const popup = document.getElementById("popup");
+      popup.querySelector("#popup-title").innerText = title;
+      popup.querySelector("#popup-content").innerText = content;
+      popup.classList.remove("hidden");
+    }
+
+    function closePopup() {
+      document.getElementById("popup").classList.add("hidden");
+    }
+  </script>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+  <!-- Popup -->
+  <div id="popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white p-6 rounded-xl max-w-lg shadow-xl relative whitespace-pre-line">
+      <button onclick="closePopup()" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">✕</button>
+      <h3 id="popup-title" class="text-2xl font-bold text-blue-900 mb-4"></h3>
+      <p id="popup-content" class="text-blue-800"></p>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-blue-800 text-white p-6 shadow">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold">Medizinische Fitness für ein besseres Leben</h1>
+      <nav>
+        <a href="#angebote" class="ml-4 hover:underline">Angebot</a>
+        <a href="#uebermich" class="ml-4 hover:underline">Über mich</a>
+        <a href="#kontakt" class="ml-4 hover:underline">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-blue-50 py-20 text-center px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-4xl font-bold text-blue-900 mb-4">„Gesundheit ist das höchste Gut“</h2>
+      <p class="text-lg text-blue-800">Lebensqualität ist kein Zufall. Medizinische Fitness der erste Schritt. Gemeinsam gehen wir deinen Weg in ein aktiveres und glücklicheres Leben</p>
+    </div>
+  </section>
+
+  <!-- Angebot -->
+  <section id="angebote" class="py-20 bg-cover bg-center text-white" style="background-image: url('images/PXL_20250319_132207961.jpg');">
+    <div class="bg-white bg-opacity-0 max-w-6xl mx-auto px-4">
+      <h3 class="text-3xl font-bold text-white mb-8">Mein Angebot</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-        <!-- Angebot 1 -->
-        <div class="bg-blue-50 p-6 rounded-xl shadow-md">
-          <h3 class="text-xl font-bold text-blue-900 mb-2">Internistische Krankheitsbilder</h3>
-          <p class="mb-4">Individuelles Training bei Bluthochdruck, Diabetes mellitus, Arteriosklerose oder nach einer Krebserkrankung – wissenschaftlich fundiert, persönlich betreut.</p>
-          <p class="font-semibold mb-4">60 Minuten · 69 €</p>
-          <div class="flex flex-col sm:flex-row gap-2">
-            <a href="mailto:training.deluxe@outlook.de" class="bg-blue-800 text-white py-2 px-4 rounded-xl text-center">Termin buchen</a>
-            <button onclick="openCallbackPopup()" class="bg-white border border-blue-800 text-blue-800 py-2 px-4 rounded-xl text-center">Rückruf vereinbaren</button>
+        <!-- Internistisch -->
+        <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
+          <h4 class="text-xl font-semibold mb-2 text-blue-900">Internistische Krankheitsbilder</h4>
+          <ul class="list-disc ml-5 text-blue-800 mb-4">
+            <li onclick="openPopup('Krebs', 'Individuell angepasstes Training zur Steigerung des Wohlbefindens und Unterstützung während oder nach der Therapie.')" class="underline cursor-pointer hover:text-blue-900">Krebs (Symptombekämpfung) <span class="inline-block text-blue-500">›</span></li>
+            <li onclick="openPopup('Arteriosklerose', 'Gezieltes Bewegungsprogramm zur Förderung der Gefäßgesundheit.')" class="underline cursor-pointer hover:text-blue-900">Arteriosklerose (Tertiärprävention) <span class="inline-block text-blue-500">›</span></li>
+            <li onclick="openPopup('Diabetes Mellitus', 'Verbesserung der Insulinempfindlichkeit durch gezieltes Training.')" class="underline cursor-pointer hover:text-blue-900">Diabetes Mellitus (Tertiärprevention und mehr) <span class="inline-block text-blue-500">›</span></li>
+            <li onclick="openPopup('Hypertonie', 'Langfristige Blutdrucksenkung durch Ausdauer- und Krafttraining.')" class="underline cursor-pointer hover:text-blue-900">Hypertonie (Tertiärprävention und mehr) <span class="inline-block text-blue-500">›</span></li>
+          </ul>
+          <div class="flex justify-between items-center space-x-4">
+            <p class="font-medium text-blue-900">ab 129 €</p>
+            <a href="mailto:training.deluxe@outlook.de" class="bg-blue-800 text-white font-semibold py-2 px-4 rounded-xl shadow hover:bg-blue-900 transition">Termin buchen</a>
+            <a href="https://formspree.io/f/xrbqngbe" target="_blank" rel="noopener" class="bg-blue-500 text-white font-semibold py-2 px-4 rounded-xl shadow hover:bg-blue-600 transition">Rückruf vereinbaren</a>
           </div>
         </div>
 
-        <!-- Angebot 2 -->
-        <div class="bg-blue-50 p-6 rounded-xl shadow-md">
-          <h3 class="text-xl font-bold text-blue-900 mb-2">Orthopädische Krankheitsbilder</h3>
-          <p class="mb-4">Gezielte Übungen und Lauftherapie bei Rücken-, Knie- oder Hüftproblemen. Schmerzfrei und beweglich durch Alltags- und Sporttraining.</p>
-          <p class="font-semibold mb-4">60 Minuten · 69 €</p>
-          <div class="flex flex-col sm:flex-row gap-2">
-            <a href="mailto:training.deluxe@outlook.de" class="bg-blue-800 text-white py-2 px-4 rounded-xl text-center">Termin buchen</a>
-            <button onclick="openCallbackPopup()" class="bg-white border border-blue-800 text-blue-800 py-2 px-4 rounded-xl text-center">Rückruf vereinbaren</button>
+        <!-- Orthopädisch -->
+        <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
+          <h4 class="text-xl font-semibold mb-2 text-blue-900">Orthopädische Krankheitsbilder</h4>
+          <ul class="list-disc ml-5 text-blue-800 mb-4">
+            <li onclick="openPopup('Schulterbeschwerden', 'Individuelles Training zur Schmerzreduktion und Verbesserung der Funktion.')" class="underline cursor-pointer hover:text-blue-900">Schulterluxation, Impingement <span class="inline-block text-blue-500">›</span></li>
+            <li onclick="openPopup('Meniskus/Kreuzband', 'Gezielter Muskelaufbau zur Stabilisation und Rückkehr in den Alltag.')" class="underline cursor-pointer hover:text-blue-900">Meniskusläsion, Kreuzbandriss <span class="inline-block text-blue-500">›</span></li>
+            <li onclick="openPopup('Rückenschmerzen', 'Analyse, Mobilisation und funktionelles Training bei akuten oder chronischen Rückenschmerzen.')" class="underline cursor-pointer hover:text-blue-900">Rückenschmerzen <span class="inline-block text-blue-500">›</span></li>
+            <li onclick="openPopup('Arthrose', 'Individuelles Bewegungs- und Krafttraining zur Schmerzlinderung und Erhalt der Beweglichkeit.')" class="underline cursor-pointer hover:text-blue-900">Arthrose <span class="inline-block text-blue-500">›</span></li>
+            <li onclick="openPopup('Endoprothesen', 'Gezielter Aufbau von Kraft, Mobilität und Alltagstauglichkeit nach OPs.')" class="underline cursor-pointer hover:text-blue-900">Kniegelenk-, Hüftprothese <span class="inline-block text-blue-500">›</span></li>
+          </ul>
+          <div class="flex justify-between items-center space-x-4">
+            <p class="font-medium text-blue-900">ab 95 €  • 5er-Paket: 425 €</p>
+            <a href="mailto:training.deluxe@outlook.de" class="bg-blue-800 text-white font-semibold py-2 px-4 rounded-xl shadow hover:bg-blue-900 transition">Termin buchen</a>
+            <a href="https://formspree.io/f/xrbqngbe" target="_blank" rel="noopener" class="bg-blue-500 text-white font-semibold py-2 px-4 rounded-xl shadow hover:bg-blue-600 transition">Rückruf vereinbaren</a>
           </div>
         </div>
 
-        <!-- Angebot 3 -->
-        <div class="bg-blue-50 p-6 rounded-xl shadow-md">
-          <h3 class="text-xl font-bold text-blue-900 mb-2">Neurologische Krankheitsbilder</h3>
-          <p class="mb-4">Koordination und Bewegung gezielt fördern – z. B. nach Schlaganfall, bei Multipler Sklerose oder Parkinson. Bewegung als Schlüssel zur Teilhabe.</p>
-          <p class="font-semibold mb-4">60 Minuten · 69 €</p>
-          <div class="flex flex-col sm:flex-row gap-2">
-            <a href="mailto:training.deluxe@outlook.de" class="bg-blue-800 text-white py-2 px-4 rounded-xl text-center">Termin buchen</a>
-            <button onclick="openCallbackPopup()" class="bg-white border border-blue-800 text-blue-800 py-2 px-4 rounded-xl text-center">Rückruf vereinbaren</button>
+        <!-- Neurologisch -->
+        <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
+          <h4 class="text-xl font-semibold mb-2 text-blue-900">Neurologische Krankheitsbilder</h4>
+          <ul class="list-disc ml-5 text-blue-800 mb-4">
+            <li onclick="openPopup('Schlaganfall', 'Wiedererlangung von Bewegungsfähigkeit, Koordination und Selbstständigkeit.')" class="underline cursor-pointer hover:text-blue-900">Schlaganfall <span class="inline-block text-blue-500">›</span></li>
+            <li onclick="openPopup('Multiple Sklerose', 'Training zur Erhaltung von Kraft, Koordination und Lebensqualität.')" class="underline cursor-pointer hover:text-blue-900">MS – Multiple Sklerose <span class="inline-block text-blue-500">›</span></li>
+            <li onclick="openPopup('Parkinson-Syndrom', 'Gezielte Übungen zur Verbesserung von Mobilität, Gleichgewicht und Alltagssicherheit.')" class="underline cursor-pointer hover:text-blue-900">Parkinson-Syndrom <span class="inline-block text-blue-500">›</span></li>
+          </ul>
+          <div class="flex justify-between items-center space-x-4">
+            <p class="font-medium text-blue-900">ab 129 € </p>
+            <a href="mailto:training.deluxe@outlook.de" class="bg-blue-800 text-white font-semibold py-2 px-4 rounded-xl shadow hover:bg-blue-900 transition">Termin buchen</a>
+            <a href="https://formspree.io/f/xrbqngbe" target="_blank" rel="noopener" class="bg-blue-500 text-white font-semibold py-2 px-4 rounded-xl shadow hover:bg-blue-600 transition">Rückruf vereinbaren</a>
           </div>
         </div>
 
-        <!-- Angebot 4 -->
-        <div class="bg-blue-50 p-6 rounded-xl shadow-md">
-          <h3 class="text-xl font-bold text-blue-900 mb-2">Sportlicher Wiedereinstieg</h3>
-          <p class="mb-4">Zurück zu alter Stärke: Training nach Verletzung, Operation oder längerer Pause. Belastungsangepasst, gesundheitsorientiert und zielgerichtet.</p>
-          <p class="font-semibold mb-4">60 Minuten · 69 €</p>
-          <div class="flex flex-col sm:flex-row gap-2">
-            <a href="mailto:training.deluxe@outlook.de" class="bg-blue-800 text-white py-2 px-4 rounded-xl text-center">Termin buchen</a>
-            <button onclick="openCallbackPopup()" class="bg-white border border-blue-800 text-blue-800 py-2 px-4 rounded-xl text-center">Rückruf vereinbaren</button>
+        <!-- Wiedereinstieg -->
+        <div class="p-6 border border-white rounded-xl shadow bg-white bg-opacity-70">
+          <h4 class="text-xl font-semibold mb-2 text-blue-900">Sportlicher Wiedereinstieg</h4>
+          <ul class="list-disc ml-5 text-blue-800 mb-4">
+            <li onclick="openPopup('Verletzungsnachsorge', 'Gezielter und sicherer Wiederaufbau nach akuten oder chronischen Verletzungen.')" class="underline cursor-pointer hover:text-blue-900">Verletzungsnachsorge <span class="inline-block text-blue-500">›</span></li>
+            <li onclick="openPopup('Krankheitspause', 'Individuelles Training nach längerer Erkrankung zur Rückkehr in den Sport.')" class="underline cursor-pointer hover:text-blue-900">Krankheitspause <span class="inline-block text-blue-500">›</span></li>
+            <li onclick="openPopup('Postpartaltraining', 'Gezieltes Training zur Rückbildung und Stärkung nach der Geburt.')" class="underline cursor-pointer hover:text-blue-900">Postpartaltraining <span class="inline-block text-blue-500">›</span></li>
+            <li onclick="openPopup('Pause', 'Empfehlungen und Begleitung bei Sportpausen.')" class="underline cursor-pointer hover:text-blue-900">Pause <span class="inline-block text-blue-500">›</span></li>
+          </ul>
+          <div class="flex justify-between items-center space-x-4">
+            <p class="font-medium text-blue-900">ab 95 €  • 5er-Paket: 425 €</p>
+            <a href="mailto:training.deluxe@outlook.de" class="bg-blue-800 text-white font-semibold py-2 px-4 rounded-xl shadow hover:bg-blue-900 transition">Termin buchen</a>
+            <a href="https://formspree.io/f/xrbqngbe" target="_blank" rel="noopener" class="bg-blue-500 text-white font-semibold py-2 px-4 rounded-xl shadow hover:bg-blue-600 transition">Rückruf vereinbaren</a>
           </div>
         </div>
 
@@ -62,42 +137,18 @@
     </div>
   </section>
 
-  <!-- Rückruf-Pop-up -->
-  <div id="callback-popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-    <div class="bg-white p-6 rounded-xl max-w-md w-full relative">
-      <button onclick="closeCallbackPopup()" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">✕</button>
-      <h3 class="text-xl font-bold text-blue-900 mb-4">Rückruf vereinbaren</h3>
-      <form action="https://formspree.io/f/xrbqngbe" method="POST" class="space-y-4">
-        <div>
-          <label class="block text-sm font-medium text-gray-700">Name*</label>
-          <input type="text" name="name" required class="w-full border border-gray-300 rounded px-3 py-2">
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700">Handynummer*</label>
-          <input type="tel" name="phone" required class="w-full border border-gray-300 rounded px-3 py-2">
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700">Wunschuhrzeit*</label>
-          <input type="time" name="callback-time" required class="w-full border border-gray-300 rounded px-3 py-2">
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700">Anliegen*</label>
-          <textarea name="message" required rows="3" class="w-full border border-gray-300 rounded px-3 py-2"></textarea>
-        </div>
-        <button type="submit" class="w-full bg-blue-800 text-white py-2 px-4 rounded-xl">Absenden</button>
-      </form>
+  <!-- Über mich -->
+  <section id="uebermich" class="max-w-4xl mx-auto p-6 my-12">
+    <h3 class="text-3xl font-bold text-blue-900 mb-4">Über mich</h3>
+    <p class="mb-2 text-gray-800">Ich bin Bastian-Dominic Stahl, leidenschaftlicher Trainer und Experte für medizinische Fitness. Mein Ziel ist es, Menschen mit verschiedenen Krankheitsbildern wieder zu mehr Lebensqualität zu verhelfen.</p>
+  </section>
+
+  <!-- Kontakt -->
+  <section id="kontakt" class="bg-blue-800 text-white p-6">
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-3xl font-bold mb-4">Kontakt</h3>
+      <p>Schreib mir gerne eine Mail: <a href="mailto:training.deluxe@outlook.de" class="underline">training.deluxe@outlook.de</a></p>
     </div>
-  </div>
-
-  <!-- JavaScript -->
-  <script>
-    function openCallbackPopup() {
-      document.getElementById('callback-popup').classList.remove('hidden');
-    }
-    function closeCallbackPopup() {
-      document.getElementById('callback-popup').classList.add('hidden');
-    }
-  </script>
-
+  </section>
 </body>
 </html>
